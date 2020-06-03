@@ -6,5 +6,8 @@ namespace Roads.Board
     {
         public GameObject GO;
         public Vector3 position;
+
+        public int x;
+        public int y;
     }
 }
