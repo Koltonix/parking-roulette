@@ -29,6 +29,11 @@ namespace Roads.Controls
         [Header("Events")]
         public UnityEvent OnLeftClick;
         public UnityEvent OnRightClick;
+        [Space]
+        public UnityEvent OnPositiveRotate;
+        public UnityEvent OnNegativeRotate;
+        [Space]
+
         public RaycastHitEvent OnMouseHover;
 
         protected virtual void Start()
@@ -40,11 +45,18 @@ namespace Roads.Controls
         {
             LeftClick();
             RightClick();
+
+            PositiveRotate();
+            NegativeRotate();
+
             DebugDrawDray();
         }
 
-        protected virtual void LeftClick() { OnLeftClick.Invoke(); }
-        protected virtual void RightClick() { OnRightClick.Invoke(); }
+        protected virtual void LeftClick() { }
+        protected virtual void RightClick() { }
+
+        protected virtual void PositiveRotate() { }
+        protected virtual void NegativeRotate() { }
 
         private void DebugDrawDray()
         {

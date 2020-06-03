@@ -13,12 +13,24 @@ namespace Roads.Controls
         protected override void LeftClick()
         {
             if (Input.GetKeyDown(keys.leftClick))
-                OnLeftClick.Invoke();
+                OnLeftClick?.Invoke();
         }
         protected override void RightClick()
         {
             if (Input.GetKeyDown(keys.rightClick))
-                OnRightClick.Invoke();
+                OnRightClick?.Invoke();
+        }
+
+        protected override void PositiveRotate()
+        {
+            if (Input.GetKeyDown(keys.positiveRotate))
+                OnPositiveRotate?.Invoke();
+        }
+
+        protected override void NegativeRotate()
+        {
+            if (Input.GetKeyDown(keys.negativeRotate))
+                OnNegativeRotate?.Invoke();
         }
 
         private void RaycastFromCamera()
