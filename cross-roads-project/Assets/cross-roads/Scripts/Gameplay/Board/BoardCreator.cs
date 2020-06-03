@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿using System.Security.Cryptography;
 using UnityEngine;
 
 namespace Roads.Board
@@ -7,6 +7,7 @@ namespace Roads.Board
     {
         [Header("Board Settings")]
         public Board board;
+        private GameObject boardParent;
         [Space]
 
         [Header("Tile Settings")]
@@ -15,6 +16,9 @@ namespace Roads.Board
 
         public void CreateBoard(Board board)
         {
+            if (boardParent) DestroyImmediate(boardParent);
+            boardParent = new GameObject("Board");
+
             board.tiles = new Tile[board.width, board.height];
 
             for (int x = 0; x < board.width; x++)
@@ -25,6 +29,7 @@ namespace Roads.Board
                                                         y * board.tileSize - ((board.height - 1) * board.tileSize * .5f));
 
                     board.tiles[x, y] = SpawnTile(spawnPosition, x, y);
+                    board.tiles[x, y].GO.transform.SetParent(boardParent.transform);
                 }
             }
         }
