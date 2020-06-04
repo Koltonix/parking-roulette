@@ -1,5 +1,5 @@
-﻿using System.Security.Cryptography;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEditor;
 
 namespace Roads.Board
 {
@@ -18,11 +18,12 @@ namespace Roads.Board
 
         public void CreateBoard(Board board)
         {
-            if (boardParent) DestroyImmediate(boardParent);
+            if (!boardParent) DestroyImmediate(boardParent);
             boardParent = new GameObject("Board");
 
             board.tiles = new Tile[board.width + 1, board.height + 1];
-
+            board.debugTiles = new System.Collections.Generic.List<Tile>();
+            
             for (int x = 0; x < board.width + 1; x++)
             {
                 for (int y = 0; y < board.height + 1; y++)
@@ -42,6 +43,18 @@ namespace Roads.Board
                     board.tiles[x, y].GO.transform.SetParent(boardParent.transform);
                 }
             }
+            
+            GameObject prefab = PrefabUtility.SaveAsPrefabAsset(boardParent, Application.dataPath + "/cross-roads/Scripts/Gameplay/Board/ScriptableObjects/board.prefab");
+            board.prefab = prefab;
+
+            for (int i = 0; i < board.prefab.transform.childCount; i++)
+            {
+                Tile tile = board.prefab.transform.GetChild(i).GetComponent<Tile>();
+                board.tiles[tile.x, tile.y] = tile;
+                board.debugTiles.Add(tile);
+            }
+
+            DestroyImmediate(boardParent)
         }
 
         private Tile SpawnTile(Vector3 worldPosition, int x, int y)

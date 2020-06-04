@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Roads.Board
 {
@@ -9,6 +10,9 @@ namespace Roads.Board
         public int width;
         public int tileSize;
 
+        public GameObject prefab;
+
         public Tile[,] tiles;
+        public List<Tile> debugTiles;
     }
 }
