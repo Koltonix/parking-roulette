@@ -918,7 +918,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825756486}
-  - component: {fileID: 1825756487}
   - component: {fileID: 1825756488}
   m_Layer: 0
   m_Name: Board Manager
@@ -941,23 +940,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1825756487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825756485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a65c232847c1aa48b60c3eee4dba0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  board: {fileID: 11400000, guid: 0c992f00f97abb94aa7bb39537ab7928, type: 2}
-  tilePrefab: {fileID: 3264841951262970933, guid: af255af4e8f559847b990fc983ca2411,
-    type: 3}
-  parkingSpotPrefab: {fileID: 3264841951262970933, guid: a115240c01791964898c61421659ec1c,
-    type: 3}
 --- !u!114 &1825756488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d52b1d926eef074abc41f318acc925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  board: {fileID: 11400000, guid: 0c992f00f97abb94aa7bb39537ab7928, type: 2}
+  boardReference: {fileID: 0}
 --- !u!1 &2005179158
 GameObject:
   m_ObjectHideFlags: 0

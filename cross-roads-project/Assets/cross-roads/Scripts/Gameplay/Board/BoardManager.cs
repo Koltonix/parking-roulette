@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
-namespace Roads.Board
+namespace Roads.Boards
 {
     public class BoardManager : MonoBehaviour
     {
@@ -15,14 +16,13 @@ namespace Roads.Board
 
         [Header("Board")]
         [SerializeField]
-        private Board board;
+        private Board boardReference;
+
+        private Tile[,] boardInstance;
 
         private void Start()
         {
-            foreach (Tile tile in board.tiles)
-            {
-                TileToWorld(tile);
-            }
+            
         }
 
         public Tile GetClosestTile(Vector3 position)
@@ -30,11 +30,11 @@ namespace Roads.Board
             float shortestDistance = float.MaxValue;
             Tile closestTile = null;
 
-            while (!closestTile && board.tiles.Length > 0)
+            while (!closestTile && boardInstance.Length > 0)
             {
-                foreach (Tile tile in board.tiles)
+                foreach (Tile tile in boardInstance)
                 {
-                    float distance = Vector3.Distance(position, tile.position);
+                    float distance = Vector3.Distance(position, tile.GO.transform.position);
                     if (distance < shortestDistance) 
                         closestTile = tile;
                 }
@@ -54,8 +54,8 @@ namespace Roads.Board
             float offset = -12.5f;
 
             Vector3 worldPosition = Vector3.zero;
-            worldPosition.x = (((tile.x + 1) + offset) - board.tiles.GetLength(0)) * board.tileSize;
-            worldPosition.z = (((tile.y + 1) + offset) - board.tiles.GetLength(1)) * board.tileSize;
+            worldPosition.x = (((tile.x + 1) + offset) - boardInstance.GetLength(0)) * boardReference.tileSize;
+            worldPosition.z = (((tile.y + 1) + offset) - boardInstance.GetLength(1)) * boardReference.tileSize;
 
             Debug.Log(string.Format("({0} : {1}) : {2}", tile.x, tile.y, worldPosition));
         }

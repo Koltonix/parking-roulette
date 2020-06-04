@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Roads.Board
+namespace Roads.Boards
 {
     public class Tile : MonoBehaviour
     {
         [Header("World Details")]
         public GameObject GO;
-        public Vector3 position;
         [Space]
 
         [Header("Board Details")]

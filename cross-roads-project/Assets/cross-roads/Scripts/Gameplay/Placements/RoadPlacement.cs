@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Roads.Roads;
-using Roads.Board;
+using Roads.Boards;
 
 namespace Roads.Placement
 {

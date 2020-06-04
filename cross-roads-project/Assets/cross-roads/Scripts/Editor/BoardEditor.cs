@@ -1,20 +1,20 @@
 ﻿using UnityEditor;
-using Roads.Board;
+using Roads.Boards;
 using UnityEngine;
 
 namespace Roads.Tools
 {
-    [CustomEditor(typeof(BoardCreator))]
-    public class BoardCreatorEditor : Editor
+    [CustomEditor(typeof(Board))]
+    public class BoardEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            BoardCreator boardCreator = (BoardCreator)target;
+            Board board = (Board)target;
             if (GUILayout.Button("Create Board"))
             {
-                boardCreator.CreateBoard(boardCreator.board);
+                board.CreateBoard();
             }
         }
     }
