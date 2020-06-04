@@ -25,22 +25,22 @@ namespace Roads.Boards
             if (!worldReference) DestroyImmediate(worldReference);
             worldReference = new GameObject("Board");
 
-            tiles = new Tile[width + 1, height + 1];
+            tiles = new Tile[width, height];
 
-            for (int x = 0; x < width + 1; x++)
+            for (int x = 0; x < width; x++)
             {
-                for (int y = 0; y < height + 1; y++)
+                for (int y = 0; y < height; y++)
                 {
                     #region Removing Corners
                     if (x == 0 && y == 0) continue;
-                    if (x == width && y == height) continue;
+                    if (x == width - 1 && y == height - 1) continue;
 
-                    if (x == 0 && y == height) continue;
-                    if (x == width && y == 0) continue;
+                    if (x == 0 && y == height - 1) continue;
+                    if (x == width - 1 && y == 0) continue;
                     #endregion
 
-                    Vector3 spawnPosition = new Vector3(x * tileSize - ((width - 1 + 1) * tileSize * .5f), 0.0f,
-                                                        y * tileSize - ((height - 1 + 1) * tileSize * .5f));
+                    Vector3 spawnPosition = new Vector3(x * tileSize - ((width - 1) * tileSize * .5f), 0.0f,
+                                                        y * tileSize - ((height - 1) * tileSize * .5f));
 
                     tiles[x, y] = SpawnTile(spawnPosition, x, y);
                     tiles[x, y].GO.transform.SetParent(worldReference.transform);
@@ -65,7 +65,7 @@ namespace Roads.Boards
 
         private Tile SpawnTile(Vector3 worldPosition, int x, int y)
         {
-            bool parkingSlot = (x == 0 || y == 0 || x == width || y == height);
+            bool parkingSlot = (x == 0 || y == 0 || x == width - 1|| y == height - 1);
             GameObject prefab = parkingSlot ? parkingSpotPrefab : tilePrefab;
 
             Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).AddComponent<Tile>();
