@@ -773,6 +773,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 704677167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &704677169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704677168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4dcee50ce5f9ff4ca92419de70c0574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateInterval: 45
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &840452154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,8 +1712,8 @@ MonoBehaviour:
   OnPositiveRotate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 537766958}
-        m_MethodName: CyclePoints
+      - m_Target: {fileID: 704677169}
+        m_MethodName: RotateObject
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1714,8 +1728,8 @@ MonoBehaviour:
   OnNegativeRotate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 537766958}
-        m_MethodName: CyclePoints
+      - m_Target: {fileID: 704677169}
+        m_MethodName: RotateObject
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
