@@ -119,12 +119,6 @@ namespace Roads.Boards
             return closestTile;
         }
 
-        public void WorldToTile(Vector3 worldPostion)
-        {
-            //float offset = -12.5f;
-            //int x = 
-        }
-
         public Vector3 TileToWorld(Tile tile)
         {
             if (tile == null) return Vector3.zero;
@@ -136,6 +130,18 @@ namespace Roads.Boards
             worldPosition.z = (((tile.y + 1) + (offset.y / tileGap.y)) - width) * tileGap.y;
 
             return worldPosition;
+        }
+
+        private Tile WorldToTile(Vector3 position)
+        {
+            Vector2 offset = GetOffset(width, height, tileGap);
+            int x = Mathf.RoundToInt((((position.x / tileGap.x) + width) - (offset.x / tileGap.x)) - 1);
+            int y = Mathf.RoundToInt((((position.z / tileGap.y) + height) - (offset.y / tileGap.y)) - 1);
+
+            x = Mathf.Clamp(x, 0, width - 1);
+            y = Mathf.Clamp(y, 0, height - 1);
+
+            return boardInstance[x, y];
         }
 
         private Vector2 GetOffset(int width, int height, Vector2 tileGap)
@@ -151,8 +157,14 @@ namespace Roads.Boards
         {
             if (!hit.collider) return;
 
-            //Debug.Log(GetClosestTile(hit.point).x + " : " + GetClosestTile(hit.point).y);
-            Debug.Log(TileToWorld(GetClosestTile(hit.point)));
+            foreach (Tile tile in boardInstance)
+            {
+                if (tile != null)
+                    tile.GO.GetComponent<Renderer>().material.color = Color.red;
+            }
+            Tile hitTile = WorldToTile(hit.point);
+            if (hitTile)
+                hitTile.GO.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }

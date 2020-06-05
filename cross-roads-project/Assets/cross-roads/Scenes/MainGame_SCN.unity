@@ -599,6 +599,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 6x6 Board
       objectReference: {fileID: 0}
+    - target: {fileID: 5853533629822438526, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7629807990290943870, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1083,34 +1088,12 @@ MonoBehaviour:
     rgba: 4278190335
   OnLeftClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 210216138}
-        m_MethodName: PlaceItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnRightClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 210216138}
-        m_MethodName: DestroyItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPositiveRotate:
