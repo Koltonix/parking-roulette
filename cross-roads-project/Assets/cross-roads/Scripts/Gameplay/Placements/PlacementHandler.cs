@@ -31,8 +31,14 @@ namespace Roads.Placement
                 return;
             }
 
-            currentPlacement = hit.collider.GetComponent<Placement>();
-            placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
+            Placement newPlacement = hit.collider.GetComponent<Placement>();
+
+            if (newPlacement != null)
+            {
+                currentPlacement = hit.collider.GetComponent<Placement>();
+                placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
+                return;
+            }
 
             PlaceItem();
         }

@@ -901,6 +901,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9202242036940918863, guid: 899319b7182a1b74bbf6d5984fa67a9c,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1559
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899319b7182a1b74bbf6d5984fa67a9c, type: 3}
 --- !u!1 &1412512136
@@ -1145,7 +1150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placement: 0
-  roadPrefab: {fileID: 0}
+  roadPrefab: {fileID: 4598404253121055605, guid: 9bf959506c984244c95216a064575d90,
+    type: 3}
+  spawnOffset: {x: 0, y: 0.65, z: 0}
 --- !u!65 &1863947291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1264,7 +1271,7 @@ MonoBehaviour:
   keys: {fileID: 11400000, guid: feb9c049e12af8c43997b4852c1a2636, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 513
   distance: 100
   mainCamera: {fileID: 1250377468}
   rayDistance: 100
@@ -1340,17 +1347,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 210216138}
         m_MethodName: ReceiveRaycastHit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1825756488}
-        m_MethodName: DebugTile
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -132,7 +132,7 @@ namespace Roads.Boards
             return worldPosition;
         }
 
-        private Tile WorldToTile(Vector3 position)
+        public Tile WorldToTile(Vector3 position)
         {
             Vector2 offset = GetOffset(width, height, tileGap);
             int x = Mathf.RoundToInt((((position.x / tileGap.x) + width) - (offset.x / tileGap.x)) - 1);

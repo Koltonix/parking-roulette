@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2891e911ec3424e84840dbc090f806, type: 3}
   m_Name: Board Tool Creator
   m_EditorClassIdentifier: 
-  height: 7
-  width: 7
+  height: 6
+  width: 6
   tileSize: 5
   tilePrefab: {fileID: 3264841951262970933, guid: af255af4e8f559847b990fc983ca2411,
     type: 3}

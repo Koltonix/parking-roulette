@@ -15,5 +15,6 @@ namespace Roads.Boards
 
         [Header("Attributes")]
         public bool parkingSlot;
+        public bool hasRoad = false;
     }
 }
