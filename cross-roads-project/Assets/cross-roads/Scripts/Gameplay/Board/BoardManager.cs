@@ -27,16 +27,23 @@ namespace Roads.Boards
 
         [Header("Board References")]
         private Tile[,] boardInstance;
+        private Tile[] tileDebug;
 
         private void Start()
         {
-            Tile[] tiles = GetTilesFromBoard(board);
+            tileDebug = GetTilesFromBoard(board);
 
-            width = GetLength(tiles, 0);
-            height = GetLength(tiles, 1);
+            width = GetLength(tileDebug, 0);
+            height = GetLength(tileDebug, 1);
 
-            boardInstance = AssignTilesToGrid(tiles);
+            boardInstance = AssignTilesToGrid(tileDebug);
+            
             tileGap = GetTileGap(boardInstance);
+
+            foreach (Tile tile in boardInstance)
+            {
+                TileToWorld(tile);
+            }
         }
 
         #region Calculating Board Values
@@ -99,9 +106,14 @@ namespace Roads.Boards
 
             foreach (Tile tile in boardInstance)
             {
+                if (tile == null) continue;
+
                 float distance = Vector3.Distance(position, tile.GO.transform.position);
                 if (distance < shortestDistance)
+                {
                     closestTile = tile;
+                    shortestDistance = distance;
+                }
             }
 
             return closestTile;
@@ -113,15 +125,34 @@ namespace Roads.Boards
             //int x = 
         }
 
-        //public void TileToWorld(Tile tile)
-        //{
-        //    float offset = -12.5f;
+        public Vector3 TileToWorld(Tile tile)
+        {
+            if (tile == null) return Vector3.zero;
 
-        //    Vector3 worldPosition = Vector3.zero;
-        //    worldPosition.x = (((tile.x + 1) + offset) - boardInstance.GetLength(0)) * boardReference.tileSize;
-        //    worldPosition.z = (((tile.y + 1) + offset) - boardInstance.GetLength(1)) * boardReference.tileSize;
+            Vector2 offset = GetOffset(width, height, tileGap);
+            Vector3 worldPosition = Vector3.zero;
 
-        //    Debug.Log(string.Format("({0} : {1}) : {2}", tile.x, tile.y, worldPosition));
-        //}
+            worldPosition.x = (((tile.x + 1) + (offset.x / tileGap.x)) - width) * tileGap.x;
+            worldPosition.z = (((tile.y + 1) + (offset.y / tileGap.y)) - width) * tileGap.y;
+
+            return worldPosition;
+        }
+
+        private Vector2 GetOffset(int width, int height, Vector2 tileGap)
+        {
+            Vector2 offset;
+            offset.x = ((width * tileGap.x) - tileGap.x) * .5f;
+            offset.y = ((height * tileGap.y) - tileGap.y) * .5f;
+
+            return offset;
+        }
+
+        public void DebugTile(RaycastHit hit)
+        {
+            if (!hit.collider) return;
+
+            //Debug.Log(GetClosestTile(hit.point).x + " : " + GetClosestTile(hit.point).y);
+            Debug.Log(TileToWorld(GetClosestTile(hit.point)));
+        }
     }
 }
