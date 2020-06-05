@@ -7,7 +7,6 @@ using UnityEngine;
 using ParkingRoulette.Enums;
 using ParkingRoulette.Events;
 using UnityEngine.Events;
-using ParkingRoulette.Boards;
 
 namespace ParkingRoulette.Placement
 {
@@ -27,6 +26,8 @@ namespace ParkingRoulette.Placement
         private Placement path;
 
         [Header("Events")]
+        [SerializeField]
+        private RaycastHitEvent OnSelectTile;
         [SerializeField]
         private StringEvent onPlacementChange;
         [SerializeField]
@@ -81,7 +82,7 @@ namespace ParkingRoulette.Placement
         {
             this.hit = hit;
 
-            if (currentPlacement == roads) BoardManager.Instance.SelectTile(hit);
+            if (currentPlacement == roads) OnSelectTile?.Invoke(hit);
         }
 
         private void Deselect()
