@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Roads.Enums;
 
 namespace Roads.Placement
 {
@@ -9,6 +10,8 @@ namespace Roads.Placement
         [Space]
 
         [Header("Placement")]
+        [SerializeField]
+        private PlacementType placement;
         private Placement currentPlacement;
         [SerializeField]
         private Placement roads;
@@ -20,9 +23,30 @@ namespace Roads.Placement
             
         }
 
+        public void OnLeftClick()
+        {
+            if (!hit.collider)
+            {
+                Deselect();
+                return;
+            }
+
+            currentPlacement = hit.collider.GetComponent<Placement>();
+            placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
+
+            PlaceItem();
+        }
+
+        public void OnRightClick()
+        {
+            if (currentPlacement)
+                DestroyItem();
+        }
+
         public void PlaceItem()
         {
-            currentPlacement.PlaceItem(hit.point);
+            if (currentPlacement)
+                currentPlacement.PlaceItem(hit.point);
         }
 
         public void DestroyItem()
@@ -33,6 +57,12 @@ namespace Roads.Placement
         public void ReceiveRaycastHit(RaycastHit hit)
         {
             this.hit = hit;
+        }
+
+        private void Deselect()
+        {
+            currentPlacement = null;
+            placement = PlacementType.NULL;
         }
     }
 }

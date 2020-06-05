@@ -2,6 +2,7 @@
 using UnityEngine;
 using Roads.Roads;
 using Roads.Boards;
+using Roads.Enums;
 
 namespace Roads.Placement
 {
@@ -11,6 +12,11 @@ namespace Roads.Placement
         private Dictionary<Tile, Road> roads = new Dictionary<Tile, Road>();
         [SerializeField]
         private GameObject roadPrefab;
+
+        private void Start()
+        {
+            placement = PlacementType.ROAD;   
+        }
 
         public override void PlaceItem(Vector3 position)
         {
