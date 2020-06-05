@@ -6,6 +6,8 @@ namespace Roads.Boards
     {
         [Header("World Details")]
         public GameObject GO;
+        public Color32 selectedColour;
+        public Color32 defaultColour;
         [Space]
 
         [Header("Board Details")]
@@ -16,5 +18,10 @@ namespace Roads.Boards
         [Header("Attributes")]
         public bool parkingSlot;
         public bool hasRoad = false;
+
+        private void Start()
+        {
+            defaultColour = this.GetComponent<Renderer>().material.color;
+        }
     }
 }

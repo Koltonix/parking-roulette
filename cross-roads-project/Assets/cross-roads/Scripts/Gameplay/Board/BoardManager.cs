@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Roads.Boards
 {
@@ -153,18 +152,33 @@ namespace Roads.Boards
             return offset;
         }
 
-        public void DebugTile(RaycastHit hit)
+        public void SelectTile(RaycastHit hit)
         {
             if (!hit.collider) return;
 
+            ResetTiles();
+
+            Tile hitTile = WorldToTile(hit.point);
+            if (hitTile)
+                hitTile.GO.GetComponent<Renderer>().material.color = hitTile.selectedColour;
+        }
+
+        private void ColourTiles(Tile[,] tiles, Color32 colour)
+        {
+            foreach (Tile tile in tiles)
+            {
+                if (tile != null)
+                    tile.GO.GetComponent<Renderer>().material.color = colour;
+            }
+        }
+
+        public void ResetTiles()
+        {
             foreach (Tile tile in boardInstance)
             {
                 if (tile != null)
-                    tile.GO.GetComponent<Renderer>().material.color = Color.red;
+                    tile.GO.GetComponent<Renderer>().material.color = tile.defaultColour;
             }
-            Tile hitTile = WorldToTile(hit.point);
-            if (hitTile)
-                hitTile.GO.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }

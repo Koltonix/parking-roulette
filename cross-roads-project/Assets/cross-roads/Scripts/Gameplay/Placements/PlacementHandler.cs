@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using Roads.Enums;
+using Roads.Events;
+using UnityEngine.Events;
+using Roads.Boards;
 
 namespace Roads.Placement
 {
@@ -18,9 +21,16 @@ namespace Roads.Placement
         [SerializeField]
         private Placement path;
 
-        private void Update()
+        [Header("Events")]
+        [SerializeField]
+        private StringEvent onPlacementChange;
+        [SerializeField]
+        private UnityEvent onPlacementDeselect;
+
+
+        private void Start()
         {
-            
+            onPlacementChange?.Invoke(placement.ToString());
         }
 
         public void OnLeftClick()
@@ -37,6 +47,8 @@ namespace Roads.Placement
             {
                 currentPlacement = hit.collider.GetComponent<Placement>();
                 placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
+
+                onPlacementChange?.Invoke(placement.ToString());
                 return;
             }
 
@@ -63,12 +75,17 @@ namespace Roads.Placement
         public void ReceiveRaycastHit(RaycastHit hit)
         {
             this.hit = hit;
+
+            if (currentPlacement == roads) BoardManager.Instance.SelectTile(hit);
         }
 
         private void Deselect()
         {
             currentPlacement = null;
             placement = PlacementType.NULL;
+
+            onPlacementDeselect?.Invoke();
+            onPlacementChange?.Invoke(placement.ToString());
         }
     }
 }

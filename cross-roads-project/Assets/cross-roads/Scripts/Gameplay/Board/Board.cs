@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Roads.Boards
@@ -68,7 +67,7 @@ namespace Roads.Boards
             bool parkingSlot = (x == 0 || y == 0 || x == width - 1|| y == height - 1);
             GameObject prefab = parkingSlot ? parkingSpotPrefab : tilePrefab;
 
-            Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).AddComponent<Tile>();
+            Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).GetComponent<Tile>();
 
             tile.GO = tile.gameObject;
 
