@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Roads.Events
+namespace ParkingRoulette.Events
 {
     [Serializable]
     public class RaycastHitEvent : UnityEvent<RaycastHit> { };

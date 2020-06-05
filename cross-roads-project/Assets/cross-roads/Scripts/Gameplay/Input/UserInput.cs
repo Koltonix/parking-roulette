@@ -5,9 +5,9 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 using UnityEngine.Events;
-using Roads.Events;
+using ParkingRoulette.Events;
 
-namespace Roads.Controls
+namespace ParkingRoulette.Controls
 {
     public abstract class UserInput : MonoBehaviour
     {

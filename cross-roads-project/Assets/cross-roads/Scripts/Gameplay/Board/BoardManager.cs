@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Roads.Boards
+namespace ParkingRoulette.Boards
 {
     public class BoardManager : MonoBehaviour
     {

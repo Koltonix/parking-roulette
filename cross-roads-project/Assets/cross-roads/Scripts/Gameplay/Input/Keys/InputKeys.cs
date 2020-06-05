@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Roads.Controls
+namespace ParkingRoulette.Controls
 {
     [CreateAssetMenu(fileName = "Keys", menuName = "ScriptableObjects/Input/Keys")]
     public class InputKeys : ScriptableObject

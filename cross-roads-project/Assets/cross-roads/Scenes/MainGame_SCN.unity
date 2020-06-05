@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 5969528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.3, z: 0}
-  m_LocalScale: {x: 35, y: 1, z: 35}
+  m_LocalScale: {x: 37.5, y: 1, z: 37.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
@@ -327,8 +327,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Roads.Events.StringEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: ParkingRoulette.Events.StringEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onPlacementDeselect:
     m_PersistentCalls:
       m_Calls:
@@ -785,8 +785,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dcee50ce5f9ff4ca92419de70c0574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateInterval: 45
-  axis: {x: 0, y: 1, z: 0}
+  speed: 2.5
+  directions:
+  - {x: 0, y: 0, z: 1}
+  - {x: 1, y: 0, z: 1}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1, y: 0, z: -1}
+  - {x: 0, y: 0, z: -1}
+  - {x: -1, y: 0, z: -1}
+  - {x: -1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 1}
 --- !u!1 &840452154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,5 +1763,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Roads.Events.RaycastHitEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: ParkingRoulette.Events.RaycastHitEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

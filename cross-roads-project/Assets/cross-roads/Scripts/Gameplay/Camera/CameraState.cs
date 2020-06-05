@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Roads.Cameras
+namespace ParkingRoulette.Cameras
 {
     public abstract class CameraState : MonoBehaviour
     {

@@ -3,10 +3,10 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
-using Roads.Enums;
+using ParkingRoulette.Enums;
 using UnityEngine;
 
-namespace Roads.Placement
+namespace ParkingRoulette.Placement
 {
     public abstract class Placement : MonoBehaviour
     {

@@ -4,9 +4,9 @@
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
 using UnityEngine;
-using Roads.Enums;
+using ParkingRoulette.Enums;
 
-namespace Roads.Placement
+namespace ParkingRoulette.Placement
 {
     public class PathPlacement : Placement
     {

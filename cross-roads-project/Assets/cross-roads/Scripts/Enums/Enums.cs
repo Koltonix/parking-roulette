@@ -1,4 +1,4 @@
-﻿namespace Roads.Enums
+﻿namespace ParkingRoulette.Enums
 {
     public enum PlacementType { ROAD, PATHING, NULL };    
 }

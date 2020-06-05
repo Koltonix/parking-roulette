@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
-using Roads.Boards;
+using ParkingRoulette.Boards;
 using UnityEngine;
 
-namespace Roads.Tools
+namespace ParkingRoulette.Tools
 {
     [CustomEditor(typeof(Board))]
     public class BoardEditor : Editor

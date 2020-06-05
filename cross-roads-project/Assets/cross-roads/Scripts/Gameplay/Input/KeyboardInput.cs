@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Roads.Controls
+namespace ParkingRoulette.Controls
 {
     public class KeyboardInput : UserInput
     {

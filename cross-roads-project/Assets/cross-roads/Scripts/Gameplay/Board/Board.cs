@@ -6,7 +6,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Roads.Boards
+namespace ParkingRoulette.Boards
 {
     [CreateAssetMenu(fileName = "Board", menuName = "ScriptableObjects/Board")]
     public class Board : ScriptableObject

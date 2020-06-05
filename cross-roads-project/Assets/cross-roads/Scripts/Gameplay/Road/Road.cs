@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace Roads.Roads 
+namespace ParkingRoulette.Roads 
 {
     public class Road : MonoBehaviour
     {

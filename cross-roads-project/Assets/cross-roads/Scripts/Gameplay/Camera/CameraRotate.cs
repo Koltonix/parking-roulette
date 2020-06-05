@@ -6,7 +6,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Roads.Cameras
+namespace ParkingRoulette.Cameras
 {
     public class CameraRotate : CameraState
     {
