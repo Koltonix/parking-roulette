@@ -11,3 +11,4 @@ Submission for the South West Lockdown Jam
 |-------------------------------------------------------------|----------|
 |[Christopher Robertson](https://github.com/Koltonix)         |Programmer|
 |[Jamie Vodden](https://www.instagram.com/jamie_vodden/?hl=en)|Artist    |
+|Tabbie Lawson                                                |Artist    |
