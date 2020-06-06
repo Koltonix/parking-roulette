@@ -80,6 +80,7 @@ namespace ParkingRoulette.Boards
             tile.y = y;
 
             tile.parkingSlot = parkingSlot;
+            tile.canHaveRoad = !parkingSlot;
 
             return tile;
         }

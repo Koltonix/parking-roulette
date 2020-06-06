@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3185404176222323508}
-  m_Layer: 0
+  - component: {fileID: 325601474079721963}
+  m_Layer: 11
   m_Name: TJunction_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &325601474079721963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185404176222323509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2d3183170990e44a89c8ca86835270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3185404176563005198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +54,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 56be9ef83512fb54a9a83dbadc7e6453, type: 3}
       propertyPath: m_Name
       value: Mesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 56be9ef83512fb54a9a83dbadc7e6453, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 56be9ef83512fb54a9a83dbadc7e6453, type: 3}
       propertyPath: m_LocalPosition.x

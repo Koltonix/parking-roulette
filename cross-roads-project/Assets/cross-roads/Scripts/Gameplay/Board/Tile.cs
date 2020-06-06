@@ -24,6 +24,9 @@ namespace ParkingRoulette.Boards
         public bool parkingSlot;
         public bool hasRoad = false;
 
+        public bool canHaveRoad = true;
+        public bool canHavePath = false;
+
         private void Start()
         {
             defaultColour = this.GetComponent<Renderer>().material.color;

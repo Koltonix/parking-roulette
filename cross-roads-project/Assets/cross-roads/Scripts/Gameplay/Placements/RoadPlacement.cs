@@ -29,7 +29,7 @@ namespace ParkingRoulette.Placement
         public override void PlaceItem(Vector3 position)
         {
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            if (tile == null || roads.ContainsKey(tile)) return;
+            if (tile == null || roads.ContainsKey(tile) || !tile.canHaveRoad) return;
 
             Road road = Instantiate(roadPrefab, tile.GO.transform.position + spawnOffset, Quaternion.identity).GetComponent<Road>();
             roads.Add(tile, road);
