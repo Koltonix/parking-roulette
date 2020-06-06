@@ -51,7 +51,7 @@ namespace ParkingRoulette.Placement
             tile.hasRoad = false;
 
             roads.Remove(tile);
-            
+            UpdateAdjacentRoads(tile);
         }
 
         private void UpdateAdjacentRoads(Tile centreTile)
