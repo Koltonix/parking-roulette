@@ -59,7 +59,7 @@ namespace ParkingRoulette.Placement
             Tile[] adjacentTiles = BoardManager.Instance.GetAdjacentTiles(centreTile);
             foreach (Tile tile in adjacentTiles)
             {
-                if (tile.road)
+                if (tile.road && tile.canHaveRoad)
                     tile.road.UpdateRoad();
             }
         }

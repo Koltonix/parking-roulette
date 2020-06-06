@@ -24,6 +24,9 @@ namespace ParkingRoulette.Boards
         [Header("Attributes")]
         public bool parkingSlot;
 
+        [Header("Road Attributes")]
+        [SerializeField]
+        private LayerMask roadMask;
         public Road road;
         public bool canHaveRoad = true;
         public bool hasRoad = false;
@@ -33,6 +36,20 @@ namespace ParkingRoulette.Boards
         private void Start()
         {
             defaultColour = this.GetComponent<Renderer>().material.color;
+            CheckForRoad();
+        }
+
+        private void CheckForRoad()
+        {
+            RaycastHit hit;
+            Physics.Raycast(GO.transform.position, Vector3.up, out hit, 1.0f, roadMask);
+
+            if (hit.collider)
+                road = hit.collider.GetComponent<Road>();
+
+            hasRoad = (road == null) ? false : true;
+            if (road)
+                road.tile = this;
         }
     }
 }

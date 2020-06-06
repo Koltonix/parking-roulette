@@ -114,4 +114,10 @@ MonoBehaviour:
   x: 0
   y: 0
   parkingSlot: 0
+  roadMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  road: {fileID: 0}
+  canHaveRoad: 1
   hasRoad: 0
+  canHavePath: 0

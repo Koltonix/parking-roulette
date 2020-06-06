@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5507168874687942541}
   - component: {fileID: 853614638473843983}
-  m_Layer: 11
+  - component: {fileID: 2471608069545610183}
+  m_Layer: 10
   m_Name: StraightRoad_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +48,19 @@ MonoBehaviour:
   allRoads: {fileID: 11400000, guid: 0de339217ba15204b95456190e660053, type: 2}
   childRoad: {fileID: 5507168874687845295}
   tile: {fileID: 0}
+--- !u!65 &2471608069545610183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5507168874687845293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 0.25, z: 5}
+  m_Center: {x: 0, y: -0.125, z: 0}
 --- !u!1 &5507168874687845295
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +72,7 @@ GameObject:
   - component: {fileID: 5507168874687942543}
   - component: {fileID: 5507168874688712623}
   - component: {fileID: 5507168874689842543}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
