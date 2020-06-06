@@ -4,6 +4,7 @@
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
 using UnityEngine;
+using ParkingRoulette.Roads;
 
 namespace ParkingRoulette.Boards
 {
@@ -22,9 +23,11 @@ namespace ParkingRoulette.Boards
 
         [Header("Attributes")]
         public bool parkingSlot;
+
+        public Road road;
+        public bool canHaveRoad = true;
         public bool hasRoad = false;
 
-        public bool canHaveRoad = true;
         public bool canHavePath = false;
 
         private void Start()

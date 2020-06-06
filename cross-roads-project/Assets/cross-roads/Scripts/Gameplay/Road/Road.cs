@@ -13,7 +13,8 @@ namespace ParkingRoulette.Roads
     {
         [Header("Road Values")]
         [SerializeField]
-        private RoadValue[] roadValues;
+        private AllRoads allRoads;
+
         [SerializeField]
         private GameObject childRoad;
         [Space]
@@ -31,14 +32,14 @@ namespace ParkingRoulette.Roads
         {
             int roadValue = Convert.ToInt32(GetBinaryRoadAdjacency(), 2);
             ReplaceGameObject(GetPrefabFromValue(roadValue));
-
-            Debug.Log(roadValue);
         }
 
         private void ReplaceGameObject(GameObject prefab)
         {
             Destroy(childRoad);
-            childRoad = Instantiate(prefab, this.transform.position, Quaternion.identity);
+
+            Quaternion parentRotation = prefab.transform.rotation;
+            childRoad = Instantiate(prefab.transform.GetChild(0).gameObject, this.transform.position, parentRotation, this.transform);
         }
 
         public string GetBinaryRoadAdjacency()
@@ -60,7 +61,7 @@ namespace ParkingRoulette.Roads
 
         private GameObject GetPrefabFromValue(int value)
         {
-            foreach (RoadValue road in roadValues)
+            foreach (RoadValue road in allRoads.roads)
             {
                 if (value == road.value)
                     return road.prefab;

@@ -17,7 +17,7 @@ namespace ParkingRoulette.Tools
             base.OnInspectorGUI();
 
             Road road = (Road)target;
-            if (GUILayout.Button("DEBUG BINARY ROAD VALUE"))
+            if (GUILayout.Button("Update Road"))
                 road.UpdateRoad();
         }
     }

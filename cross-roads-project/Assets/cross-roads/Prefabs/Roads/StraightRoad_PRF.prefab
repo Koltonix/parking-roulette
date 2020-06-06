@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5507168874687845293}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 0.46, z: 7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5507168874687942543}
@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2d3183170990e44a89c8ca86835270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allRoads: {fileID: 11400000, guid: 0de339217ba15204b95456190e660053, type: 2}
+  childRoad: {fileID: 5507168874687845295}
+  tile: {fileID: 0}
 --- !u!1 &5507168874687845295
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5507168874687845295}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.14781101, z: -0.00000029805028}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 3.901119, y: 0.21696694, z: 3.901119}
   m_Children: []
   m_Father: {fileID: 5507168874687942541}
