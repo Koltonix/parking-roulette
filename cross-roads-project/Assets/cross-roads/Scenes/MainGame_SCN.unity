@@ -279,6 +279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FamilyCar_PRF
       objectReference: {fileID: 0}
+    - target: {fileID: 7550723767431916187, guid: 1ee6c204af0af094ba4e89bac2ff826d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7550723767432345275, guid: 1ee6c204af0af094ba4e89bac2ff826d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1706,6 +1711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sports Car_PRF
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668153287361177274, guid: 8ef9066e5ea5c9441ba4ca35b2418480,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7668153287361673882, guid: 8ef9066e5ea5c9441ba4ca35b2418480,
         type: 3}

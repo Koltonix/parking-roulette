@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3185404176222323509, guid: 4fdfb886bd9a1bf4f9fea0c022a25dad,
         type: 3}
       propertyPath: m_Name
-      value: 11Road_PRF
+      value: 11Road_PRF Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3185404176222323508, guid: 4fdfb886bd9a1bf4f9fea0c022a25dad,
         type: 3}
@@ -67,5 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5469999461767752883, guid: 4fdfb886bd9a1bf4f9fea0c022a25dad,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7987fdb1f1db6f4abb381e20d545675, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fdfb886bd9a1bf4f9fea0c022a25dad, type: 3}

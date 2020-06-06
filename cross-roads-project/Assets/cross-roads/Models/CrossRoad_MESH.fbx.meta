@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eddce185bd5407438fc0af9f2a0fe1b
+guid: 2ecba5669ff33294fb73b83af61fdc51
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     100002: pasted__pCube1
     400000: //RootNode
     400002: pasted__pCube1
-    2100000: lambert1
+    2100000: lambert2
     2300000: pasted__pCube1
     3300000: pasted__pCube1
     4300000: pasted__pCube1
@@ -42,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 131.5
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
