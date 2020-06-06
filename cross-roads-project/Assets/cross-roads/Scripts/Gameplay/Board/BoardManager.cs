@@ -148,6 +148,33 @@ namespace ParkingRoulette.Boards
             return boardInstance[x, y];
         }
 
+        public Tile[] GetAdjacentTiles(Tile tile)
+        {
+            Tile[] tiles = new Tile[4];
+
+            int x = tile.x;
+            int y = tile.y;
+
+            //North
+            tiles[0] = GetTile(x, y + 1);
+            //East
+            tiles[1] = GetTile(x + 1, y);
+            //South
+            tiles[2] = GetTile(x, y - 1);
+            //West
+            tiles[3] = GetTile(x - 1, y);
+
+            return tiles;
+        }
+
+        private Tile GetTile(int x, int y)
+        {
+            if (x > width - 1 || y > height - 1 || x < 0 || y < 0)
+                return null;
+
+            return boardInstance[x, y];
+        }
+
         private Vector2 GetOffset(int width, int height, Vector2 tileGap)
         {
             Vector2 offset;

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2891e911ec3424e84840dbc090f806, type: 3}
   m_Name: Board Tool Creator
   m_EditorClassIdentifier: 
-  height: 7
-  width: 7
+  height: 6
+  width: 6
   tileSize: 5
   tilePrefab: {fileID: 3264841951262970933, guid: af255af4e8f559847b990fc983ca2411,
     type: 3}
   parkingSpotPrefab: {fileID: 3264841951262970933, guid: a115240c01791964898c61421659ec1c,
     type: 3}
-  prefabReference: {fileID: 2083513907958926719, guid: 22f96d3cedf32dc4f837898b8ec1f26f,
+  prefabReference: {fileID: 5853533629822438526, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
     type: 3}

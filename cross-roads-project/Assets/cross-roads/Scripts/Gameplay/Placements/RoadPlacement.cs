@@ -35,6 +35,7 @@ namespace ParkingRoulette.Placement
             roads.Add(tile, road);
 
             tile.hasRoad = true;
+            road.tile = tile;
         }
 
         public override void RemoveItem(Vector3 position)
