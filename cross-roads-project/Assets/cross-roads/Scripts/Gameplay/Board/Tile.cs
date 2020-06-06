@@ -1,12 +1,18 @@
-﻿using UnityEngine;
+﻿//////////////////////////////////////////////////
+// Christopher Robertson 2020.
+// https://github.com/Koltonix
+// Copyright (c) 2020. All rights reserved.
+//////////////////////////////////////////////////
+using UnityEngine;
 
-namespace Roads.Board
+namespace ParkingRoulette.Boards
 {
     public class Tile : MonoBehaviour
     {
         [Header("World Details")]
         public GameObject GO;
-        public Vector3 position;
+        public Color32 selectedColour;
+        public Color32 defaultColour;
         [Space]
 
         [Header("Board Details")]
@@ -16,5 +22,11 @@ namespace Roads.Board
 
         [Header("Attributes")]
         public bool parkingSlot;
+        public bool hasRoad = false;
+
+        private void Start()
+        {
+            defaultColour = this.GetComponent<Renderer>().material.color;
+        }
     }
 }

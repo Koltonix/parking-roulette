@@ -5,13 +5,10 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 
-namespace ParkingRoulette.Cameras
+namespace ParkingRoulette.Roads 
 {
-    public abstract class CameraState : MonoBehaviour
+    public class Road : MonoBehaviour
     {
-        public virtual void OnEnter() { }
-        public virtual void OnStay() { }
-        public virtual void OnExit() { }
     }
 }
 

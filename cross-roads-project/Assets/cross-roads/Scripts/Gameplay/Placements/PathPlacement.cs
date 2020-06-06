@@ -4,14 +4,15 @@
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
 using UnityEngine;
+using ParkingRoulette.Enums;
 
-namespace ParkingRoulette.Cameras
+namespace ParkingRoulette.Placement
 {
-    public abstract class CameraState : MonoBehaviour
+    public class PathPlacement : Placement
     {
-        public virtual void OnEnter() { }
-        public virtual void OnStay() { }
-        public virtual void OnExit() { }
+        private void Start()
+        {
+            placement = PlacementType.PATHING;
+        }
     }
 }
-
