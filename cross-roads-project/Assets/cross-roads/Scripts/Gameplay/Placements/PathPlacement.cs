@@ -35,7 +35,9 @@ namespace ParkingRoulette.Placement
             Tile tile = BoardManager.Instance.WorldToTile(position);
             if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile) && tile.vehicle == null)
             {
-                selectedVehicle.AddPathPoint(tile);
+                //You can only go into a parking slot once and cannot leave once you have...
+                if (!selectedVehicle.previousTile.parkingSlot || (selectedVehicle.path.Count == 1 && !tile.parkingSlot))
+                    selectedVehicle.AddPathPoint(tile);
             }
         }
 
