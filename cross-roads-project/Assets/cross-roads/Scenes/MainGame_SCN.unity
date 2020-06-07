@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousTile: {fileID: 0}
+  originalSpawnHeight: 2
   heightIncrease: 2
   pointColour:
     serializedVersion: 2
@@ -2081,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousTile: {fileID: 0}
+  originalSpawnHeight: 2
   heightIncrease: 2
   pointColour:
     serializedVersion: 2

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2381713608076096560}
   - component: {fileID: 2381713608076096561}
   m_Layer: 0
-  m_Name: Point
+  m_Name: Point_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2381713608076096567}
   m_LocalRotation: {x: 0.46193978, y: 0.19134173, z: 0.19134173, w: 0.84462327}
   m_LocalPosition: {x: -3, y: 2, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

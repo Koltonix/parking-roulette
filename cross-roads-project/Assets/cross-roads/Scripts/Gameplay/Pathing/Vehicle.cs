@@ -19,6 +19,8 @@ namespace ParkingRoulette.Pathing
 
         [Header("Points")]
         [SerializeField]
+        private float originalSpawnHeight = 2.0f;
+        [SerializeField]
         private float heightIncrease = 2.0f;
         public Color32 pointColour;
         public GameObject pathIconPrefab;
@@ -35,6 +37,7 @@ namespace ParkingRoulette.Pathing
             line.name = (this.name + " PATH");
 
             UpdateLine();
+            EnablePath(false);
         }
 
         public void AddPathPoint(Tile tile)
@@ -77,11 +80,12 @@ namespace ParkingRoulette.Pathing
             line.SetPositions(positions.ToArray());
         }
 
-        public void ResetPath()
+        public void EnablePath(bool isEnabled)
         {
-            path = new List<PathPoint>();
-            
-            //Update the Path Visuals here
+            for (int i = 0; i < path.Count; i++)
+                path[i].point.SetActive(isEnabled);
+
+            line.gameObject.SetActive(isEnabled);
         }
 
         private GameObject CreatePoint(Tile tile)
@@ -97,7 +101,7 @@ namespace ParkingRoulette.Pathing
 
         private float GetYRelativeToPaths(Tile checkTile)
         {
-            float height = this.transform.position.y;
+            float height = originalSpawnHeight;
             for (int i = 0; i < path.Count; i++)
             {
                 if (path[i].tile == checkTile)

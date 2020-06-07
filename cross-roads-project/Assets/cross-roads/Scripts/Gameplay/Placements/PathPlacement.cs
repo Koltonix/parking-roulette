@@ -22,6 +22,12 @@ namespace ParkingRoulette.Placement
                 selectedVehicle = this.GetComponent<Vehicle>();
         }
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            selectedVehicle.EnablePath(true);
+        }
+
         public override void PlaceItem(Vector3 position)
         {
             base.PlaceItem(position);
@@ -49,6 +55,12 @@ namespace ParkingRoulette.Placement
         public override void OnUpdate(Vector3 position)
         {
             base.OnUpdate(position);
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            selectedVehicle.EnablePath(false);
         }
 
         private bool TileIsAdjacent(Tile centreTile, Tile newTile)

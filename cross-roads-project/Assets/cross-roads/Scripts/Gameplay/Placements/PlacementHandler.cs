@@ -57,7 +57,11 @@ namespace ParkingRoulette.Placement
 
             if (newPlacement != null)
             {
-                currentPlacement = hit.collider.GetComponent<Placement>();
+                currentPlacement?.OnExit();
+
+                currentPlacement = newPlacement;
+                currentPlacement.OnEnter();
+
                 placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
 
                 onPlacementChange?.Invoke(placement.ToString());

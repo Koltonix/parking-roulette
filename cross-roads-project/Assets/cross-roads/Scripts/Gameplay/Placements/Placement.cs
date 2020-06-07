@@ -16,7 +16,9 @@ namespace ParkingRoulette.Placement
         public virtual void PlaceItem(Vector3 position){ }
         public virtual void RemoveItem(Vector3 position) { }
 
+        public virtual void OnEnter() { }
         public virtual void OnUpdate(Vector3 position) { }
+        public virtual void OnExit() { }
     }
 }
 
