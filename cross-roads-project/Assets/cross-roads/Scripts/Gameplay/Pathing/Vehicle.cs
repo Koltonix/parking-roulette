@@ -9,6 +9,8 @@ using ParkingRoulette.Boards;
 
 namespace ParkingRoulette.Pathing
 {
+
+    [RequireComponent(typeof(VehicleMovement))]
     public class Vehicle : MonoBehaviour
     {
         [Header("Colour")]
@@ -34,8 +36,13 @@ namespace ParkingRoulette.Pathing
         [HideInInspector]
         public LineRenderer line;
 
+        [HideInInspector]
+        public VehicleMovement movement;
+
         private void Start()
         {
+            movement = this.GetComponent<VehicleMovement>();
+
             line = Instantiate(linePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
             line.name = (this.name + " PATH");
 

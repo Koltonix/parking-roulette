@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7550723767431018139}
   - component: {fileID: 7550723767429919835}
   - component: {fileID: 7550723767431949369}
-  - component: {fileID: 172995632}
   - component: {fileID: 172995633}
+  - component: {fileID: 172995632}
+  - component: {fileID: 2331357266144110359}
   m_Layer: 11
   m_Name: FamilyCar_PRF
   m_TagString: Untagged
@@ -97,32 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2705362, y: 1.1853293, z: 4.4188843}
   m_Center: {x: -0.00045883653, y: 0, z: -0.00035572052}
---- !u!114 &172995632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7550723767431916187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847fa1b3d8c9b21488a8ff70d3572a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousTile: {fileID: 0}
-  originalSpawnHeight: 2
-  heightIncrease: 2
-  pointColour:
-    serializedVersion: 2
-    rgba: 4293955616
-  pathIconPrefab: {fileID: 2381713608076096567, guid: 0eae6b6c5c7fb374f97a43ab0b02291a,
-    type: 3}
-  lineColour:
-    serializedVersion: 2
-    rgba: 0
-  linePrefab: {fileID: 8919341782713578744, guid: d1866a2687958dc4aa878e99daafc59a,
-    type: 3}
-  line: {fileID: 0}
 --- !u!114 &172995633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +112,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placement: 2
   selectedVehicle: {fileID: 172995632}
+--- !u!114 &172995632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550723767431916187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847fa1b3d8c9b21488a8ff70d3572a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carColour:
+    serializedVersion: 2
+    rgba: 0
+  path: []
+  previousTile: {fileID: 0}
+  originalSpawnHeight: 2
+  heightIncrease: 2
+  pathIconPrefab: {fileID: 2381713608076096567, guid: 0eae6b6c5c7fb374f97a43ab0b02291a,
+    type: 3}
+  lineColour:
+    serializedVersion: 2
+    rgba: 0
+  linePrefab: {fileID: 8919341782713578744, guid: d1866a2687958dc4aa878e99daafc59a,
+    type: 3}
+  line: {fileID: 0}
+--- !u!114 &2331357266144110359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550723767431916187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d41e01fdb7f39d43800fdcb3cee6f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &748084854671006378
 PrefabInstance:
   m_ObjectHideFlags: 0

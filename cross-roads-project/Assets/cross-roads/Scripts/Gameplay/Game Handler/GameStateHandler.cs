@@ -3,11 +3,12 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Pathing;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ParkingRoulette.GameHandler
 {
@@ -34,59 +35,59 @@ namespace ParkingRoulette.GameHandler
         [SerializeField]
         private Vector3 spawnOffset = Vector3.up * 1.5f;
 
+        [Header("Events")]
+        [SerializeField]
+        private UnityEvent onRun;
+        [SerializeField]
+        private UnityEvent onWin;
+        [SerializeField]
+        private UnityEvent onLose;
+
         private void Start()
         {
             SpawnCars(amountToSpawn);
         }
 
-        public void CheckOverlap()
+        public void StartMovement()
         {
-            CheckForLoss(vehicles);
+           
+            onRun?.Invoke();
+            StartCoroutine(MoveVehicles());   
         }
 
-        private void CheckForLoss(Vehicle[] vehicles)
+        private IEnumerator MoveVehicles()
         {
-            int checkSize = GetLongestPath(vehicles);
-            for (int i = 0; i < checkSize; i++)
-            {
-                CheckForDuplicateTile(vehicles, i);
-            }
-        }
+            int checkAmount = GetLongestPath(vehicles);
+            Debug.Log(checkAmount);
 
-        private void CheckForDuplicateTile(Vehicle[] vehicles, int index)
-        {
-            List<Tile> currentTiles = GetAllCurrentTiles(vehicles, index);
-            foreach (Tile tile in currentTiles)
+            for (int i = 0; i < checkAmount; i++)
             {
-                int numOnTile = 0;
-                foreach(Vehicle vehicle in vehicles)
+                foreach (Vehicle vehicle in vehicles)
                 {
-                    if (index <= vehicle.path.Count - 1  && vehicle.path[index].tile == tile)
-                        numOnTile++;
-
-                    if (numOnTile > 1)
-                        Debug.Log("LOST");
+                    yield return vehicle.movement.MoveToPoint(i);
                 }
             }
+
+            Debug.Log("OVER");
         }
 
-        private List<Tile> GetAllCurrentTiles(Vehicle[] vehicles, int index)
+        public void WinGame()
         {
-            List<Tile> tiles = new List<Tile>();
-            foreach (Vehicle vehicle in vehicles)
-                if (index <= vehicle.path.Count - 1)
-                    tiles.Add(vehicle.path[index].tile);
+            onWin?.Invoke();
+        }
 
-            return tiles;
+        public void LoseGame()
+        {
+            onLose?.Invoke();
         }
 
         private int GetLongestPath(Vehicle[] vehicles)
         {
-            int longest = Int32.MaxValue;
+            int longest = 0;
             foreach (Vehicle vehicle in vehicles)
             {
                 int pathLength = vehicle.path.Count;
-                if (pathLength < longest)
+                if (pathLength > longest)
                     longest = pathLength;
             }
 

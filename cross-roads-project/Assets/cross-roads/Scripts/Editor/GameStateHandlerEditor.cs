@@ -17,8 +17,14 @@ namespace ParkingRoulette.Tools
             base.OnInspectorGUI();
             GameStateHandler gameHandler = (GameStateHandler)target;
 
-            if (GUILayout.Button("Check For Overlap"))
-                gameHandler.CheckOverlap();
+            if (GUILayout.Button("Start Movement"))
+                gameHandler.StartMovement();
+
+            if (GUILayout.Button("Win Game"))
+                gameHandler.WinGame();
+
+            if (GUILayout.Button("Lose Game"))
+                gameHandler.LoseGame();
         }
     }
 }
