@@ -26,7 +26,6 @@ namespace ParkingRoulette.Pathing
         {
             if (pathIndex < vehicle.path.Count)
             {
-
                 Vector3 targetPosition = vehicle.path[pathIndex].tile.GO.transform.position;
                 targetPosition.y = this.transform.position.y;
 

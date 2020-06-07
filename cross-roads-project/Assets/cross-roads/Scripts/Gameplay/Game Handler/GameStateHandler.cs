@@ -52,23 +52,27 @@ namespace ParkingRoulette.GameHandler
         {
            
             onRun?.Invoke();
+
+            foreach (Vehicle vehicle in vehicles)
+                vehicle.EnablePath(true);
+
             StartCoroutine(MoveVehicles());   
         }
 
         private IEnumerator MoveVehicles()
         {
             int checkAmount = GetLongestPath(vehicles);
-            Debug.Log(checkAmount);
 
             for (int i = 0; i < checkAmount; i++)
             {
-                foreach (Vehicle vehicle in vehicles)
-                {
-                    yield return vehicle.movement.MoveToPoint(i);
-                }
-            }
+                for (int j = 0; j < vehicles.Length; j++)
+                    yield return vehicles[j].movement.MoveToPoint(i);
 
-            Debug.Log("OVER");
+                yield return new WaitForEndOfFrame();
+            }
+                
+
+            yield return null;
         }
 
         public void WinGame()
