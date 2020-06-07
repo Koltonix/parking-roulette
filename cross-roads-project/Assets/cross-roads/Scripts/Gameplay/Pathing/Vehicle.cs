@@ -112,9 +112,9 @@ namespace ParkingRoulette.Pathing
         public void EnablePath(bool isEnabled)
         {
             for (int i = 0; i < path.Count; i++)
-                path[i].point.SetActive(isEnabled);
+                path[i].point.GetComponent<MeshRenderer>().enabled = isEnabled;
 
-            line.gameObject.SetActive(isEnabled);
+            line.enabled = isEnabled;
         }
 
         private GameObject CreatePoint(Tile tile)

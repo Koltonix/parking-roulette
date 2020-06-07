@@ -7,7 +7,6 @@ using UnityEngine;
 using ParkingRoulette.Enums;
 using ParkingRoulette.Pathing;
 using ParkingRoulette.Boards;
-using System.Diagnostics;
 
 namespace ParkingRoulette.Placement
 {

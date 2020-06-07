@@ -58,7 +58,6 @@ namespace ParkingRoulette.Placement
             if (newPlacement != null)
             {
                 currentPlacement?.OnExit();
-
                 currentPlacement = newPlacement;
                 currentPlacement.OnEnter();
 
@@ -97,6 +96,8 @@ namespace ParkingRoulette.Placement
 
         private void Deselect()
         {
+            currentPlacement?.OnExit();
+
             currentPlacement = null;
             placement = PlacementType.NULL;
 
