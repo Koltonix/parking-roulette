@@ -3,6 +3,7 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ParkingRoulette.Boards
@@ -32,6 +33,8 @@ namespace ParkingRoulette.Boards
         [Header("Board References")]
         private Tile[,] boardInstance;
         private Tile[] tileDebug;
+        [HideInInspector]
+        public Tile[] parkingSpots;
 
         private void Start()
         {
@@ -48,6 +51,8 @@ namespace ParkingRoulette.Boards
             {
                 TileToWorld(tile);
             }
+
+            parkingSpots = GetAllParkingSpots(boardInstance);
         }
 
         #region Calculating Board Values
@@ -211,6 +216,18 @@ namespace ParkingRoulette.Boards
                 if (tile != null)
                     tile.GO.GetComponent<Renderer>().material.color = tile.defaultColour;
             }
+        }
+
+        private Tile[] GetAllParkingSpots(Tile[,] tiles)
+        {
+            List<Tile> parkingSpaces = new List<Tile>();
+            foreach (Tile tile in tiles)
+            {
+                if (tile.parkingSlot)
+                    parkingSpaces.Add(tile);
+            }
+
+            return parkingSpaces.ToArray();
         }
     }
 }
