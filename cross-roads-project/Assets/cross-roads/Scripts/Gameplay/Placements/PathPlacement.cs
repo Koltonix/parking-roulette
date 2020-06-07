@@ -5,14 +5,61 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 using ParkingRoulette.Enums;
+using ParkingRoulette.Vehicles;
+using ParkingRoulette.Boards;
 
 namespace ParkingRoulette.Placement
 {
     public class PathPlacement : Placement
     {
+        [SerializeField]
+        private Vehicle selectedVehicle;
+
         private void Start()
         {
             placement = PlacementType.PATHING;
+            if (!selectedVehicle)
+                selectedVehicle = this.GetComponent<Vehicle>();
+        }
+
+        public override void PlaceItem(Vector3 position)
+        {
+            base.PlaceItem(position);
+
+            if (!selectedVehicle.previousTile)
+                selectedVehicle.previousTile = BoardManager.Instance.WorldToTile(selectedVehicle.transform.position);
+
+            Tile tile = BoardManager.Instance.WorldToTile(position);
+            if (tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile))
+            {
+                selectedVehicle.AddPathPoint(tile);
+            }
+        }
+
+        public override void RemoveItem(Vector3 position)
+        {
+            base.RemoveItem(position);
+
+            Tile tile = BoardManager.Instance.WorldToTile(position);
+            if (tile.hasRoad)
+                selectedVehicle.RemovePathsUntil(tile);
+        }
+
+        public override void OnUpdate(Vector3 position)
+        {
+            base.OnUpdate(position);
+        }
+
+        private bool TileIsAdjacent(Tile centreTile, Tile newTile)
+        {
+            Tile[] adjacentTiles = BoardManager.Instance.GetAdjacentTiles(centreTile);
+            foreach (Tile tile in adjacentTiles)
+            {
+                if (tile == newTile)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

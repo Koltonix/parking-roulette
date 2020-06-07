@@ -39,6 +39,12 @@ namespace ParkingRoulette.Placement
             onPlacementChange?.Invoke(placement.ToString());
         }
 
+        private void Update()
+        {
+            if (currentPlacement)
+                currentPlacement.OnUpdate(hit.point);
+        }
+
         public void OnLeftClick()
         {
             if (!hit.collider)
