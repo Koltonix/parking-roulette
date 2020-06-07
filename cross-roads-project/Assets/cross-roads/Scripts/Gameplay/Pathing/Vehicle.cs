@@ -51,6 +51,8 @@ namespace ParkingRoulette.Pathing
 
             UpdateLine();
             EnablePath(false);
+
+            AddPathPoint(BoardManager.Instance.WorldToTile(this.transform.position));
         }
 
         public void AddPathPoint(Tile tile)
@@ -63,7 +65,7 @@ namespace ParkingRoulette.Pathing
 
         public void RemovePathsUntil(Tile tile)
         {
-            for (int i = path.Count - 1; i >= 0; i--)
+            for (int i = path.Count - 1; i >= 1; i--)
             {
                 if (path[i].tile == tile)
                 {
@@ -75,7 +77,7 @@ namespace ParkingRoulette.Pathing
                 path.RemoveAt(i);
             }
 
-            if (path.Count == 0)
+            if (path.Count == 1)
                 previousTile = BoardManager.Instance.WorldToTile(this.transform.position);
 
             UpdateLine();
@@ -83,7 +85,7 @@ namespace ParkingRoulette.Pathing
 
         public void RemovePathsUntilUpper(Tile tile)
         {
-            for (int i = 0; i < path.Count; i++)
+            for (int i = 0; i < path.Count - 1; i++)
             {
                 if (path[i].tile == tile)
                 {
@@ -96,7 +98,7 @@ namespace ParkingRoulette.Pathing
                 }
             }
 
-            if (path.Count == 0)
+            if (path.Count == 1)
                 previousTile = BoardManager.Instance.WorldToTile(this.transform.position);
 
             UpdateLine();
@@ -113,7 +115,6 @@ namespace ParkingRoulette.Pathing
         private void UpdateLine()
         {
             List<Vector3> positions = new List<Vector3>();
-            positions.Add(this.transform.position);
 
             foreach (PathPoint point in path)
                 positions.Add(point.point.transform.position);

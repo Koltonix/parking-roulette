@@ -32,9 +32,6 @@ namespace ParkingRoulette.Placement
         {
             base.PlaceItem(position);
 
-            if (!selectedVehicle.previousTile)
-                selectedVehicle.previousTile = BoardManager.Instance.WorldToTile(selectedVehicle.transform.position);
-
             Tile tile = BoardManager.Instance.WorldToTile(position);
             if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile) && tile.vehicle == null)
             {
