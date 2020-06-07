@@ -50,7 +50,6 @@ namespace ParkingRoulette.GameHandler
 
         public void StartMovement()
         {
-           
             onRun?.Invoke();
 
             foreach (Vehicle vehicle in vehicles)
@@ -101,6 +100,14 @@ namespace ParkingRoulette.GameHandler
         {
             onLose?.Invoke();
             Debug.Log("LOST");
+        }
+
+        public void ResetGame()
+        {
+            foreach (Vehicle vehicle in vehicles)
+                Destroy(vehicle.gameObject);
+
+            SpawnCars(amountToSpawn);
         }
 
         private int GetLongestPath(Vehicle[] vehicles)

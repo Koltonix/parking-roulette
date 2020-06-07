@@ -25,6 +25,9 @@ namespace ParkingRoulette.Tools
 
             if (GUILayout.Button("Lose Game"))
                 gameHandler.LoseGame();
+
+            if (GUILayout.Button("Reset Game"))
+                gameHandler.ResetGame();
         }
     }
 }

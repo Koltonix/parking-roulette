@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ParkingRoulette.Boards;
+using System.Security.Cryptography;
 
 namespace ParkingRoulette.Pathing
 {
@@ -161,6 +162,23 @@ namespace ParkingRoulette.Pathing
         public Color32 GetRandomColour()
         {
             return Random.ColorHSV(0, 1, 1, 1, 1, 1);
+        }
+
+        private void OnDestroy()
+        {
+            if (BoardManager.Instance)
+            {
+                BoardManager.Instance.WorldToTile(transform.position).currentVehicle = null;
+                BoardManager.Instance.WorldToTile(endPoint.transform.position).expectedVehicle = null;
+            }
+            
+            if (endPoint)
+                Destroy(endPoint);
+
+            foreach (PathPoint point in path)
+                Destroy(point.point);
+
+            Destroy(line.gameObject);
         }
     }
 }
