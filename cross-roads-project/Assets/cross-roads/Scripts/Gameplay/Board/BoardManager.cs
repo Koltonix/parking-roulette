@@ -10,14 +10,7 @@ namespace ParkingRoulette.Boards
 {
     public class BoardManager : MonoBehaviour
     {
-        #region Singleton
         public static BoardManager Instance;
-        private void Awake()
-        {
-            if (!Instance) Instance = this;
-            else Destroy(this);
-        }
-        #endregion
 
         [Header("Board Assignment")]
         [SerializeField]
@@ -25,8 +18,10 @@ namespace ParkingRoulette.Boards
         [Space]
 
         [Header("Board Settings")]
-        private int width = 0;
-        private int height = 0;
+        [HideInInspector]
+        public int width = 0;
+        [HideInInspector]
+        public int height = 0;
         private Vector2 tileGap = Vector2.zero;
         [Space]
 
@@ -36,8 +31,11 @@ namespace ParkingRoulette.Boards
         [HideInInspector]
         public Tile[] parkingSpots;
 
-        private void Start()
+        private void Awake()
         {
+            if (!Instance) Instance = this;
+            else Destroy(this);
+
             tileDebug = GetTilesFromBoard(board);
 
             width = GetLength(tileDebug, 0);
@@ -223,7 +221,7 @@ namespace ParkingRoulette.Boards
             List<Tile> parkingSpaces = new List<Tile>();
             foreach (Tile tile in tiles)
             {
-                if (tile.parkingSlot)
+                if (tile != null && tile.parkingSlot)
                     parkingSpaces.Add(tile);
             }
 
