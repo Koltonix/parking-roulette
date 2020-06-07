@@ -3,12 +3,13 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Pathing;
 using UnityEngine;
 
-namespace ParkingRoulette.GameHander
+namespace ParkingRoulette.GameHandler
 {
     public class GameStateHandler : MonoBehaviour
     {
@@ -21,7 +22,11 @@ namespace ParkingRoulette.GameHander
         }
         #endregion
 
-        [Header("Car Prefabs")]
+        [Header("Lose Conditions")]
+
+        [Header("Car Spawning")]
+        [SerializeField]
+        private int amountToSpawn = 4;
         [SerializeField]
         private GameObject[] carPrefabs;
         [SerializeField]
@@ -31,9 +36,64 @@ namespace ParkingRoulette.GameHander
 
         private void Start()
         {
-            SpawnCars(2);
+            SpawnCars(amountToSpawn);
         }
 
+        public void CheckOverlap()
+        {
+            CheckForLoss(vehicles);
+        }
+
+        private void CheckForLoss(Vehicle[] vehicles)
+        {
+            int checkSize = GetLongestPath(vehicles);
+            for (int i = 0; i < checkSize; i++)
+            {
+                CheckForDuplicateTile(vehicles, i);
+            }
+        }
+
+        private void CheckForDuplicateTile(Vehicle[] vehicles, int index)
+        {
+            List<Tile> currentTiles = GetAllCurrentTiles(vehicles, index);
+            foreach (Tile tile in currentTiles)
+            {
+                int numOnTile = 0;
+                foreach(Vehicle vehicle in vehicles)
+                {
+                    if (index <= vehicle.path.Count - 1  && vehicle.path[index].tile == tile)
+                        numOnTile++;
+
+                    if (numOnTile > 1)
+                        Debug.Log("LOST");
+                }
+            }
+        }
+
+        private List<Tile> GetAllCurrentTiles(Vehicle[] vehicles, int index)
+        {
+            List<Tile> tiles = new List<Tile>();
+            foreach (Vehicle vehicle in vehicles)
+                if (index <= vehicle.path.Count - 1)
+                    tiles.Add(vehicle.path[index].tile);
+
+            return tiles;
+        }
+
+        private int GetLongestPath(Vehicle[] vehicles)
+        {
+            int longest = Int32.MaxValue;
+            foreach (Vehicle vehicle in vehicles)
+            {
+                int pathLength = vehicle.path.Count;
+                if (pathLength < longest)
+                    longest = pathLength;
+            }
+
+            return longest;
+        }
+
+        #region Spawning Cars
         private void SpawnCars(int amount)
         {
             //Sanity check
@@ -45,7 +105,7 @@ namespace ParkingRoulette.GameHander
             
             for (int i = 0; i < amount; i++)
             {
-                Tile randomTile = parkingSpots[Random.Range(0, parkingSpots.Count)];
+                Tile randomTile = parkingSpots[UnityEngine.Random.Range(0, parkingSpots.Count)];
                 vehicles[i] = CreateCar(randomTile).GetComponent<Vehicle>();
 
                 parkingSpots.Remove(randomTile);
@@ -56,7 +116,7 @@ namespace ParkingRoulette.GameHander
         {
             Vector3 spawnPoint = tile.GO.transform.position + spawnOffset;
 
-            GameObject carClone = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)], spawnPoint, Quaternion.identity);
+            GameObject carClone = Instantiate(carPrefabs[UnityEngine.Random.Range(0, carPrefabs.Length)], spawnPoint, Quaternion.identity);
             carClone.transform.forward = GetDirection(tile.x, tile.y);
 
             return carClone;
@@ -72,5 +132,6 @@ namespace ParkingRoulette.GameHander
 
             return Vector3.zero;
         }
+        #endregion
     }
 }

@@ -11,8 +11,12 @@ namespace ParkingRoulette.Pathing
 {
     public class Vehicle : MonoBehaviour
     {
+        [Header("Colour")]
+        [SerializeField]
+        private Color32 carColour;
+
         [Header("Pathing Attributes")]
-        private List<PathPoint> path = new List<PathPoint>();
+        public List<PathPoint> path = new List<PathPoint>();
         [HideInInspector]
         public Tile previousTile = null;
         [Space]
@@ -22,7 +26,6 @@ namespace ParkingRoulette.Pathing
         private float originalSpawnHeight = 2.0f;
         [SerializeField]
         private float heightIncrease = 2.0f;
-        public Color32 pointColour;
         public GameObject pathIconPrefab;
 
         [Header("Lines")]
@@ -35,6 +38,9 @@ namespace ParkingRoulette.Pathing
         {
             line = Instantiate(linePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
             line.name = (this.name + " PATH");
+
+            carColour = Random.ColorHSV(0, 1, 1, 1, 1, 1);
+            this.GetComponent<Renderer>().material.color = carColour;
 
             UpdateLine();
             EnablePath(false);
@@ -123,7 +129,7 @@ namespace ParkingRoulette.Pathing
             position.y = GetYRelativeToPaths(tile);
             
             GameObject point = Instantiate(pathIconPrefab, position, pathIconPrefab.transform.rotation, line.transform);
-            point.GetComponent<Renderer>().material.color = pointColour;
+            point.GetComponent<Renderer>().material.color = carColour;
 
             return point;
         }

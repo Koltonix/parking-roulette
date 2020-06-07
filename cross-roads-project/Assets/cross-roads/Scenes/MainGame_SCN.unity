@@ -764,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cd21a3e91d04042a54152744d229ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountToSpawn: 2
   carPrefabs:
   - {fileID: 7550723767431916187, guid: 1ee6c204af0af094ba4e89bac2ff826d, type: 3}
   - {fileID: 7668153287361177274, guid: 8ef9066e5ea5c9441ba4ca35b2418480, type: 3}
@@ -2696,6 +2697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 704677168}
+  width: 0
+  height: 0
   parkingSpots: []
 --- !u!1001 &1837447556
 PrefabInstance:

@@ -57,6 +57,11 @@ namespace ParkingRoulette.Placement
             UpdateAllPathing(tile);
         }
 
+        public override void OnExit()
+        {
+            BoardManager.Instance.ResetTiles();
+        }
+
         private void UpdateAllPathing(Tile tile)
         {
             Vehicle[] vehicles = FindObjectsOfType<Vehicle>();
