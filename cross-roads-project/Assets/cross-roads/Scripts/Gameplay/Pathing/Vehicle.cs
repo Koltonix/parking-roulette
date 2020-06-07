@@ -68,6 +68,35 @@ namespace ParkingRoulette.Pathing
             UpdateLine();
         }
 
+        public void RemovePathsUntilUpper(Tile tile)
+        {
+            for (int i = 0; i < path.Count; i++)
+            {
+                if (path[i].tile == tile)
+                {
+                    if (path.Count - 1 > 0)
+                        previousTile = path[i - 1].tile;
+
+                    DestroyPath(i);
+                    path.RemoveRange(i, path.Count - i);
+                    break;
+                }
+            }
+
+            if (path.Count == 0)
+                previousTile = BoardManager.Instance.WorldToTile(this.transform.position);
+
+            UpdateLine();
+        }
+
+        private void DestroyPath(int index)
+        {
+            for (int i = index; i < path.Count; i++)
+            {
+                Destroy(path[i].point);
+            }
+        }
+
         private void UpdateLine()
         {
             List<Vector3> positions = new List<Vector3>();
