@@ -7,6 +7,7 @@ using UnityEngine;
 using ParkingRoulette.Enums;
 using ParkingRoulette.Pathing;
 using ParkingRoulette.Boards;
+using System.Diagnostics;
 
 namespace ParkingRoulette.Placement
 {
@@ -36,7 +37,7 @@ namespace ParkingRoulette.Placement
                 selectedVehicle.previousTile = BoardManager.Instance.WorldToTile(selectedVehicle.transform.position);
 
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            if (tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile))
+            if (tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile) && tile.vehicle == null)
             {
                 selectedVehicle.AddPathPoint(tile);
             }

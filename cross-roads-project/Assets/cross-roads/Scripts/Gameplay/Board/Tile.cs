@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 using ParkingRoulette.Roads;
+using ParkingRoulette.Pathing;
 
 namespace ParkingRoulette.Boards
 {
@@ -27,22 +28,41 @@ namespace ParkingRoulette.Boards
         [Header("Road Attributes")]
         [SerializeField]
         private LayerMask roadMask;
+        [HideInInspector]
         public Road road;
         public bool canHaveRoad = true;
         public bool hasRoad = false;
 
         public bool canHavePath = false;
+        [Space]
+
+        [Header("Vehicle Settings")]
+        [SerializeField]
+        private LayerMask vehicleMask;
+        [HideInInspector]
+        public Vehicle vehicle; 
 
         private void Start()
         {
             defaultColour = this.GetComponent<Renderer>().material.color;
+
             CheckForRoad();
+            CheckForVehicle();
+        }
+
+        private void CheckForVehicle()
+        {
+            RaycastHit hit;
+            Physics.Raycast(GO.transform.position, Vector3.up, out hit, 5.0f, vehicleMask);
+
+            if (hit.collider)
+                vehicle = hit.collider.GetComponent<Vehicle>();
         }
 
         private void CheckForRoad()
         {
             RaycastHit hit;
-            Physics.Raycast(GO.transform.position, Vector3.up, out hit, 1.0f, roadMask);
+            Physics.Raycast(GO.transform.position, Vector3.up, out hit, 5.0f, roadMask);
 
             if (hit.collider)
                 road = hit.collider.GetComponent<Road>();

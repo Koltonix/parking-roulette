@@ -921,95 +921,190 @@ PrefabInstance:
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 1941212290868996889, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 3472295568956408449, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472295568956408449, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 7117579650628592462, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 7117579650628592462, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1172458568780552210, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172458568780552210, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 3427972693679411148, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 3427972693679411148, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 4427685125960698222, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427685125960698222, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 4313380093670485600, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 4313380093670485600, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1003765629034528886, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003765629034528886, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 5054722605724280450, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 5054722605724280450, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 8946951880723656992, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946951880723656992, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 692900200108723701, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 692900200108723701, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 146868987866231918, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 146868987866231918, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 5330270806627501979, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 5330270806627501979, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 491921010973069896, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 491921010973069896, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 3361099238309579111, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 3361099238309579111, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 3040493826260793552, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040493826260793552, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 4695312852124841271, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 4695312852124841271, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 4218157073228162300, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: roadMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218157073228162300, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264487629763175977, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 5264487629763175977, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
-      propertyPath: roadMask.m_Bits
-      value: 1024
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 5015310951573555242, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
@@ -1021,65 +1116,130 @@ PrefabInstance:
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 2873824994392802171, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 5680577408989143095, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680577408989143095, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 8514442358503922203, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 8514442358503922203, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 2362887552506959827, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362887552506959827, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 2084706785244000773, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 2084706785244000773, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 7079330717144158692, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079330717144158692, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 4371565384696163019, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 4371565384696163019, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 2524857134186452523, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524857134186452523, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 7977188794556146644, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 7977188794556146644, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1497323684082938601, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497323684082938601, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 7307818707915517731, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
+    - target: {fileID: 7307818707915517731, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1949101523040386015, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: roadMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949101523040386015, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
+        type: 3}
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608808963268581801, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: roadMask.m_Bits
       value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 1608808963268581801, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
-      propertyPath: roadMask.m_Bits
-      value: 1024
+      propertyPath: vehicleMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b, type: 3}

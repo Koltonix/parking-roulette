@@ -74,7 +74,7 @@ namespace ParkingRoulette.Pathing
             {
                 if (path[i].tile == tile)
                 {
-                    if (path.Count - 1 > 0)
+                    if (path.Count - 2 > 1)
                         previousTile = path[i - 1].tile;
 
                     DestroyPath(i);
