@@ -40,7 +40,8 @@ namespace ParkingRoulette.Boards
         [SerializeField]
         private LayerMask vehicleMask;
         [HideInInspector]
-        public Vehicle vehicle; 
+        public Vehicle currentVehicle;
+        public Vehicle expectedVehicle;
 
         private void Start()
         {
@@ -50,13 +51,13 @@ namespace ParkingRoulette.Boards
             CheckForVehicle();
         }
 
-        private void CheckForVehicle()
+        public void CheckForVehicle()
         {
             RaycastHit hit;
             Physics.Raycast(GO.transform.position, Vector3.up, out hit, 5.0f, vehicleMask);
 
             if (hit.collider)
-                vehicle = hit.collider.GetComponent<Vehicle>();
+                currentVehicle = hit.collider.GetComponent<Vehicle>();
         }
 
         private void CheckForRoad()

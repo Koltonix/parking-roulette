@@ -24,7 +24,7 @@ namespace ParkingRoulette.Pathing
 
         public IEnumerator MoveToPoint(int pathIndex)
         {
-            if (pathIndex < vehicle.path.Count)
+            if (pathIndex < vehicle.path.Count && pathIndex != 0)
             {
                 Vector3 targetPosition = vehicle.path[pathIndex].tile.GO.transform.position;
                 targetPosition.y = this.transform.position.y;

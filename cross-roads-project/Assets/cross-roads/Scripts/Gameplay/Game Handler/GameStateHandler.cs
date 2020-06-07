@@ -70,19 +70,37 @@ namespace ParkingRoulette.GameHandler
 
                 yield return new WaitForEndOfFrame();
             }
-                
 
+            CheckIfWon();
             yield return null;
+        }
+
+        private void CheckIfWon()
+        {
+            foreach (Tile tile in BoardManager.Instance.parkingSpots)
+            {
+                tile.CheckForVehicle();
+
+                if (tile.currentVehicle != tile.expectedVehicle)
+                {
+                    LoseGame();
+                    return;
+                }
+            }
+
+            WinGame();
         }
 
         public void WinGame()
         {
             onWin?.Invoke();
+            Debug.Log("WON");
         }
 
         public void LoseGame()
         {
             onLose?.Invoke();
+            Debug.Log("LOST");
         }
 
         private int GetLongestPath(Vehicle[] vehicles)
@@ -99,6 +117,7 @@ namespace ParkingRoulette.GameHandler
         }
 
         #region Spawning Cars
+        //I'm so sorry on how ugly this function is
         private void SpawnCars(int amount)
         {
             //Sanity check
@@ -109,19 +128,45 @@ namespace ParkingRoulette.GameHandler
             List<Tile> parkingSpots = new List<Tile>(BoardManager.Instance.parkingSpots);
             
             for (int i = 0; i < amount; i++)
-            {
-                Tile randomTile = parkingSpots[UnityEngine.Random.Range(0, parkingSpots.Count)];
+            { 
+                Tile randomTile = parkingSpots[Random.Range(0, parkingSpots.Count)];
                 vehicles[i] = CreateCar(randomTile).GetComponent<Vehicle>();
 
-                parkingSpots.Remove(randomTile);
+                parkingSpots.Remove(randomTile);   
             }
+
+            AssignEndPoints(parkingSpots.ToArray());
+        }
+
+        private void AssignEndPoints(Tile[] parkingSpots)
+        {
+            List<Tile> parking = new List<Tile>(parkingSpots);
+
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                Tile endTile = parking[Random.Range(0, parking.Count)];
+                endTile.expectedVehicle = vehicles[i];
+
+                Vector3 spawnPosition = endTile.GO.transform.position;
+                spawnPosition.y = vehicles[i].originalSpawnHeight;
+
+                vehicles[i].carColour = vehicles[i].GetRandomColour();
+
+                GameObject clone = Instantiate(vehicles[i].pathIconPrefab, spawnPosition, vehicles[i].pathIconPrefab.transform.rotation);
+                clone.GetComponent<Renderer>().material.color = vehicles[i].carColour;
+                clone.GetComponent<MeshRenderer>().enabled = false;
+
+                vehicles[i].endPoint = clone;
+
+                parking.Remove(endTile);
+            }  
         }
 
         private GameObject CreateCar(Tile tile)
         {
             Vector3 spawnPoint = tile.GO.transform.position + spawnOffset;
 
-            GameObject carClone = Instantiate(carPrefabs[UnityEngine.Random.Range(0, carPrefabs.Length)], spawnPoint, Quaternion.identity);
+            GameObject carClone = Instantiate(carPrefabs[Random.Range(0, carPrefabs.Length)], spawnPoint, Quaternion.identity);
             carClone.transform.forward = GetDirection(tile.x, tile.y);
 
             return carClone;

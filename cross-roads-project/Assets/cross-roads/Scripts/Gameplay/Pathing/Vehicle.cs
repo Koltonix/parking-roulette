@@ -14,8 +14,7 @@ namespace ParkingRoulette.Pathing
     public class Vehicle : MonoBehaviour
     {
         [Header("Colour")]
-        [SerializeField]
-        private Color32 carColour;
+        public Color32 carColour;
 
         [Header("Pathing Attributes")]
         public List<PathPoint> path = new List<PathPoint>();
@@ -24,8 +23,7 @@ namespace ParkingRoulette.Pathing
         [Space]
 
         [Header("Points")]
-        [SerializeField]
-        private float originalSpawnHeight = 2.0f;
+        public float originalSpawnHeight = 2.0f;
         [SerializeField]
         private float heightIncrease = 2.0f;
         public GameObject pathIconPrefab;
@@ -38,6 +36,7 @@ namespace ParkingRoulette.Pathing
 
         [HideInInspector]
         public VehicleMovement movement;
+        public GameObject endPoint;
 
         private void Start()
         {
@@ -46,7 +45,9 @@ namespace ParkingRoulette.Pathing
             line = Instantiate(linePrefab, Vector3.zero, Quaternion.identity).GetComponent<LineRenderer>();
             line.name = (this.name + " PATH");
 
-            carColour = Random.ColorHSV(0, 1, 1, 1, 1, 1);
+            if (!endPoint)
+                carColour = GetRandomColour();
+
             this.GetComponent<Renderer>().material.color = carColour;
 
             UpdateLine();
@@ -128,6 +129,9 @@ namespace ParkingRoulette.Pathing
             for (int i = 0; i < path.Count; i++)
                 path[i].point.GetComponent<MeshRenderer>().enabled = isEnabled;
 
+            if (endPoint)
+                endPoint.GetComponent<MeshRenderer>().enabled = isEnabled;
+
             line.enabled = isEnabled;
         }
 
@@ -152,6 +156,11 @@ namespace ParkingRoulette.Pathing
             }
 
             return height;
+        }
+
+        public Color32 GetRandomColour()
+        {
+            return Random.ColorHSV(0, 1, 1, 1, 1, 1);
         }
     }
 }
