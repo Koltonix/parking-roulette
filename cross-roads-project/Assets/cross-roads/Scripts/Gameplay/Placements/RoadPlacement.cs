@@ -29,12 +29,17 @@ namespace ParkingRoulette.Placement
         public override void PlaceItem(Vector3 position)
         {
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            if (tile == null || roads.ContainsKey(tile)) return;
+            if (tile == null || roads.ContainsKey(tile) || !tile.canHaveRoad) return;
 
             Road road = Instantiate(roadPrefab, tile.GO.transform.position + spawnOffset, Quaternion.identity).GetComponent<Road>();
             roads.Add(tile, road);
 
             tile.hasRoad = true;
+            tile.road = road;
+
+            road.tile = tile;
+            road.UpdateRoad();
+            UpdateAdjacentRoads(tile);
         }
 
         public override void RemoveItem(Vector3 position)
@@ -44,7 +49,19 @@ namespace ParkingRoulette.Placement
 
             Destroy(roads[tile].gameObject);
             tile.hasRoad = false;
+
             roads.Remove(tile);
+            UpdateAdjacentRoads(tile);
+        }
+
+        private void UpdateAdjacentRoads(Tile centreTile)
+        {
+            Tile[] adjacentTiles = BoardManager.Instance.GetAdjacentTiles(centreTile);
+            foreach (Tile tile in adjacentTiles)
+            {
+                if (tile.road && tile.canHaveRoad)
+                    tile.road.UpdateRoad();
+            }
         }
     }
 }
