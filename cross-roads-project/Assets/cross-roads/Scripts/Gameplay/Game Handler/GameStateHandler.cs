@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Pathing;
+using ParkingRoulette.Placement;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,6 +36,8 @@ namespace ParkingRoulette.GameHandler
         [SerializeField]
         private Vector3 spawnOffset = Vector3.up * 1.5f;
 
+        private Coroutine running;
+
         [Header("Events")]
         [SerializeField]
         private UnityEvent onRun;
@@ -42,6 +45,8 @@ namespace ParkingRoulette.GameHandler
         private UnityEvent onWin;
         [SerializeField]
         private UnityEvent onLose;
+        [SerializeField]
+        private UnityEvent onReset;
 
         private void Start()
         {
@@ -54,8 +59,9 @@ namespace ParkingRoulette.GameHandler
 
             foreach (Vehicle vehicle in vehicles)
                 vehicle.EnablePath(true);
-
-            StartCoroutine(MoveVehicles());   
+            
+            if (running == null)
+                running = StartCoroutine(MoveVehicles());   
         }
 
         private IEnumerator MoveVehicles()
@@ -71,6 +77,7 @@ namespace ParkingRoulette.GameHandler
             }
 
             CheckIfWon();
+            running = null;
             yield return null;
         }
 
@@ -98,6 +105,13 @@ namespace ParkingRoulette.GameHandler
 
         public void LoseGame()
         {
+            if (running != null)
+            {
+                StopCoroutine(running);
+                running = null;
+                Debug.Log("STOP IT ALL");
+            }
+
             onLose?.Invoke();
             Debug.Log("LOST");
         }
@@ -106,6 +120,8 @@ namespace ParkingRoulette.GameHandler
         {
             foreach (Vehicle vehicle in vehicles)
                 Destroy(vehicle.gameObject);
+
+            onReset?.Invoke();
 
             SpawnCars(amountToSpawn);
         }

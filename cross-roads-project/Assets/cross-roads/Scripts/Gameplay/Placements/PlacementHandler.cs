@@ -14,6 +14,7 @@ namespace ParkingRoulette.Placement
     {
         [Header("Input")]
         public RaycastHit hit;
+        public bool canSelect = true;
         [Space]
 
         [Header("Placement")]
@@ -41,12 +42,15 @@ namespace ParkingRoulette.Placement
 
         private void Update()
         {
-            if (currentPlacement)
+            if (currentPlacement && canSelect)
                 currentPlacement.OnUpdate(hit.point);
         }
 
         public void OnLeftClick()
         {
+            if (!canSelect)
+                return;
+
             if (!hit.collider)
             {
                 Deselect();
@@ -72,7 +76,7 @@ namespace ParkingRoulette.Placement
 
         public void OnRightClick()
         {
-            if (currentPlacement)
+            if (currentPlacement && canSelect)
                 DestroyItem();
         }
 
@@ -94,7 +98,7 @@ namespace ParkingRoulette.Placement
             if (currentPlacement == roads) OnSelectTile?.Invoke(hit);
         }
 
-        private void Deselect()
+        public void Deselect()
         {
             currentPlacement?.OnExit();
 
@@ -104,5 +108,7 @@ namespace ParkingRoulette.Placement
             onPlacementDeselect?.Invoke();
             onPlacementChange?.Invoke(placement.ToString());
         }
+
+        public void CanSelect(bool value) { canSelect = value; }
     }
 }

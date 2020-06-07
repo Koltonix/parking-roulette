@@ -169,7 +169,9 @@ namespace ParkingRoulette.Pathing
             if (BoardManager.Instance)
             {
                 BoardManager.Instance.WorldToTile(transform.position).currentVehicle = null;
-                BoardManager.Instance.WorldToTile(endPoint.transform.position).expectedVehicle = null;
+
+                if (endPoint) 
+                    BoardManager.Instance.WorldToTile(endPoint.transform.position).expectedVehicle = null;
             }
             
             if (endPoint)
@@ -178,7 +180,8 @@ namespace ParkingRoulette.Pathing
             foreach (PathPoint point in path)
                 Destroy(point.point);
 
-            Destroy(line.gameObject);
+            if (line)
+                Destroy(line.gameObject);
         }
     }
 }

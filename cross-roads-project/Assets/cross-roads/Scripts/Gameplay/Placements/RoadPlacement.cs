@@ -9,6 +9,7 @@ using ParkingRoulette.Roads;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Enums;
 using ParkingRoulette.Pathing;
+using System.Linq;
 
 namespace ParkingRoulette.Placement
 {
@@ -77,6 +78,13 @@ namespace ParkingRoulette.Placement
                 if (tile.road && tile.canHaveRoad)
                     tile.road.UpdateRoad();
             }
+        }
+
+        public void DestroyAllRoads()
+        {
+            Tile[] tiles = roads.Keys.ToArray();
+            foreach (Tile tile in tiles)
+                RemoveItem(tile.GO.transform.position);
         }
     }
 }

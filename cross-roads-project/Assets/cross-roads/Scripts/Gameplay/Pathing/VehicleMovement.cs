@@ -3,6 +3,8 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using ParkingRoulette.Boards;
+using ParkingRoulette.GameHandler;
 using System.Collections;
 using UnityEngine;
 
@@ -44,6 +46,15 @@ namespace ParkingRoulette.Pathing
                     this.transform.position = Vector3.Lerp(originalPosition, targetPosition, t * moveSpeed);
                     yield return new WaitForEndOfFrame();
                 }
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.GetComponent<Vehicle>())
+            {
+                GameStateHandler.Instance.LoseGame();
+                //EXPLODE
             }
         }
     }
