@@ -3,8 +3,10 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using System.Collections.Generic;
 using UnityEngine;
 using ParkingRoulette.Roads;
+using ParkingRoulette.Pathing;
 
 namespace ParkingRoulette.Boards
 {
@@ -32,6 +34,10 @@ namespace ParkingRoulette.Boards
         public bool hasRoad = false;
 
         public bool canHavePath = false;
+        [Space]
+
+        [Header("Pathing Attributes")]
+        public List<PathPoint> points = new List<PathPoint>();
 
         private void Start()
         {

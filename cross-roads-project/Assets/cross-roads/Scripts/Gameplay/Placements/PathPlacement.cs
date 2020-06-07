@@ -5,7 +5,7 @@
 //////////////////////////////////////////////////
 using UnityEngine;
 using ParkingRoulette.Enums;
-using ParkingRoulette.Vehicles;
+using ParkingRoulette.Pathing;
 using ParkingRoulette.Boards;
 
 namespace ParkingRoulette.Placement
@@ -43,6 +43,7 @@ namespace ParkingRoulette.Placement
             Tile tile = BoardManager.Instance.WorldToTile(position);
             if (tile.hasRoad)
                 selectedVehicle.RemovePathsUntil(tile);
+
         }
 
         public override void OnUpdate(Vector3 position)

@@ -374,6 +374,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847fa1b3d8c9b21488a8ff70d3572a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousTile: {fileID: 0}
+  heightIncrease: 2
+  pointColour:
+    serializedVersion: 2
+    rgba: 4293955616
+  pathIconPrefab: {fileID: 2381713608076096567, guid: 0eae6b6c5c7fb374f97a43ab0b02291a,
+    type: 3}
+  lineColour:
+    serializedVersion: 2
+    rgba: 0
+  linePrefab: {fileID: 8919341782713578744, guid: d1866a2687958dc4aa878e99daafc59a,
+    type: 3}
+  line: {fileID: 0}
 --- !u!114 &172995633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,6 +2080,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847fa1b3d8c9b21488a8ff70d3572a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousTile: {fileID: 0}
+  heightIncrease: 2
+  pointColour:
+    serializedVersion: 2
+    rgba: 4280296143
+  pathIconPrefab: {fileID: 2381713608076096567, guid: 0eae6b6c5c7fb374f97a43ab0b02291a,
+    type: 3}
+  lineColour:
+    serializedVersion: 2
+    rgba: 0
+  linePrefab: {fileID: 8919341782713578744, guid: d1866a2687958dc4aa878e99daafc59a,
+    type: 3}
+  line: {fileID: 0}
 --- !u!114 &1900421034
 MonoBehaviour:
   m_ObjectHideFlags: 0
