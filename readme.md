@@ -1,7 +1,7 @@
-# [Repository](https://github.com/Koltonix/plym-game-jam)
-# Plym GDS Lockdown South-West Jam
+# [Repository](https://github.com/Koltonix/parking-roulette)
+# Parking Roulette
 ## Description
-Submission for the South West Lockdown Jam
+Submission for the Plym GDS Lockdown South-West Jam 2020
 
 ## Information
 - Unity 2018.4.2f1 
