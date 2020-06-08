@@ -91,7 +91,7 @@ namespace ParkingRoulette.GameHandler
                 yield return new WaitForEndOfFrame();
             }
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
 
             CheckIfWon();
             running = null;
@@ -102,12 +102,13 @@ namespace ParkingRoulette.GameHandler
         {
             foreach (Tile tile in BoardManager.Instance.parkingSpots)
             {
-                tile.CheckForVehicle();
-
-                if (tile.currentVehicle != tile.expectedVehicle)
+                if (tile.expectedVehicle != null)
                 {
-                    LoseGame();
-                    return;
+                    if (tile.expectedVehicle.path[tile.expectedVehicle.path.Count - 1].tile != tile)
+                    {
+                        LoseGame();
+                        return;
+                    }
                 }
             }
 
