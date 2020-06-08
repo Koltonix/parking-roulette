@@ -49,12 +49,13 @@ namespace ParkingRoulette.Pathing
             }
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider col)
         {
-            if (collision.collider.GetComponent<Vehicle>())
+            if (col.GetComponent<Vehicle>())
             {
                 GameStateHandler.Instance.LoseGame();
-                //EXPLODE
+                this.gameObject.SetActive(false);
+                col.gameObject.SetActive(false);
             }
         }
     }

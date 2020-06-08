@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Pathing;
-using ParkingRoulette.Placement;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,7 +27,9 @@ namespace ParkingRoulette.GameHandler
 
         [Header("Car Spawning")]
         [SerializeField]
-        private int amountToSpawn = 4;
+        private float amountToSpawn = 1;
+        [SerializeField]
+        private float spawnIncrease = 0.5f;
         [SerializeField]
         private GameObject[] carPrefabs;
         [SerializeField]
@@ -50,7 +51,7 @@ namespace ParkingRoulette.GameHandler
 
         private void Start()
         {
-            SpawnCars(amountToSpawn);
+            SpawnCars(Mathf.FloorToInt(amountToSpawn));
         }
 
         public void StartMovement()
@@ -129,17 +130,20 @@ namespace ParkingRoulette.GameHandler
             }
 
             onLose?.Invoke();
+            //Reset the actual SCENE HERE
             Debug.Log("LOST");
         }
 
         public void ResetGame()
         {
+            amountToSpawn += spawnIncrease;
+
             foreach (Vehicle vehicle in vehicles)
                 Destroy(vehicle.gameObject);
 
             onReset?.Invoke();
 
-            SpawnCars(amountToSpawn);
+            SpawnCars(Mathf.FloorToInt(amountToSpawn));
         }
 
         private Vehicle GetLongestPath(Vehicle[] vehicles)

@@ -110,7 +110,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7668153287361177274}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.2242837, y: 1.3494503, z: 4.2109447}
@@ -146,6 +146,7 @@ MonoBehaviour:
     rgba: 0
   path: []
   previousTile: {fileID: 0}
+  originalTile: {fileID: 0}
   originalSpawnHeight: 2
   heightIncrease: 2
   pathIconPrefab: {fileID: 2381713608076096567, guid: 0eae6b6c5c7fb374f97a43ab0b02291a,
