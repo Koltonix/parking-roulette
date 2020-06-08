@@ -8,6 +8,8 @@ using UnityEngine;
 using ParkingRoulette.Roads;
 using ParkingRoulette.Boards;
 using ParkingRoulette.Enums;
+using ParkingRoulette.Pathing;
+using System.Linq;
 
 namespace ParkingRoulette.Placement
 {
@@ -51,7 +53,21 @@ namespace ParkingRoulette.Placement
             tile.hasRoad = false;
 
             roads.Remove(tile);
+
             UpdateAdjacentRoads(tile);
+            UpdateAllPathing(tile);
+        }
+
+        public override void OnExit()
+        {
+            BoardManager.Instance.ResetTileColour();
+        }
+
+        private void UpdateAllPathing(Tile tile)
+        {
+            Vehicle[] vehicles = FindObjectsOfType<Vehicle>();
+            foreach (Vehicle vehicle in vehicles)
+                vehicle.RemovePathsUntilUpper(tile);
         }
 
         private void UpdateAdjacentRoads(Tile centreTile)
@@ -62,6 +78,13 @@ namespace ParkingRoulette.Placement
                 if (tile.road && tile.canHaveRoad)
                     tile.road.UpdateRoad();
             }
+        }
+
+        public void DestroyAllRoads()
+        {
+            Tile[] tiles = roads.Keys.ToArray();
+            foreach (Tile tile in tiles)
+                RemoveItem(tile.GO.transform.position);
         }
     }
 }

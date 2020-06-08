@@ -121,3 +121,7 @@ MonoBehaviour:
   canHaveRoad: 1
   hasRoad: 0
   canHavePath: 0
+  vehicleMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  vehicle: {fileID: 0}

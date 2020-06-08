@@ -3,20 +3,14 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ParkingRoulette.Boards
 {
     public class BoardManager : MonoBehaviour
     {
-        #region Singleton
         public static BoardManager Instance;
-        private void Awake()
-        {
-            if (!Instance) Instance = this;
-            else Destroy(this);
-        }
-        #endregion
 
         [Header("Board Assignment")]
         [SerializeField]
@@ -24,17 +18,24 @@ namespace ParkingRoulette.Boards
         [Space]
 
         [Header("Board Settings")]
-        private int width = 0;
-        private int height = 0;
+        [HideInInspector]
+        public int width = 0;
+        [HideInInspector]
+        public int height = 0;
         private Vector2 tileGap = Vector2.zero;
         [Space]
 
         [Header("Board References")]
         private Tile[,] boardInstance;
         private Tile[] tileDebug;
+        [HideInInspector]
+        public Tile[] parkingSpots;
 
-        private void Start()
+        private void Awake()
         {
+            if (!Instance) Instance = this;
+            else Destroy(this);
+
             tileDebug = GetTilesFromBoard(board);
 
             width = GetLength(tileDebug, 0);
@@ -48,6 +49,8 @@ namespace ParkingRoulette.Boards
             {
                 TileToWorld(tile);
             }
+
+            parkingSpots = GetAllParkingSpots(boardInstance);
         }
 
         #region Calculating Board Values
@@ -188,7 +191,7 @@ namespace ParkingRoulette.Boards
         {
             if (!hit.collider) return;
 
-            ResetTiles();
+            ResetTileColour();
 
             Tile hitTile = WorldToTile(hit.point);
             if (hitTile)
@@ -204,13 +207,25 @@ namespace ParkingRoulette.Boards
             }
         }
 
-        public void ResetTiles()
+        public void ResetTileColour()
         {
             foreach (Tile tile in boardInstance)
             {
                 if (tile != null)
                     tile.GO.GetComponent<Renderer>().material.color = tile.defaultColour;
             }
+        }
+
+        private Tile[] GetAllParkingSpots(Tile[,] tiles)
+        {
+            List<Tile> parkingSpaces = new List<Tile>();
+            foreach (Tile tile in tiles)
+            {
+                if (tile != null && tile.parkingSlot)
+                    parkingSpaces.Add(tile);
+            }
+
+            return parkingSpaces.ToArray();
         }
     }
 }

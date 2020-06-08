@@ -14,4 +14,7 @@ namespace ParkingRoulette.Events
 
     [Serializable]
     public class StringEvent : UnityEvent<string> { };
+
+    [Serializable]
+    public class IntEvent : UnityEvent<int> { };
 }

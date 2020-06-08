@@ -11,10 +11,14 @@ namespace ParkingRoulette.Placement
     public abstract class Placement : MonoBehaviour
     {
         [HideInInspector]
-        public PlacementType placement = PlacementType.NULL;
+        public PlacementType placement = PlacementType.UNSELECTED;
 
         public virtual void PlaceItem(Vector3 position){ }
         public virtual void RemoveItem(Vector3 position) { }
+
+        public virtual void OnEnter() { }
+        public virtual void OnUpdate(Vector3 position) { }
+        public virtual void OnExit() { }
     }
 }
 
