@@ -91,6 +91,8 @@ namespace ParkingRoulette.GameHandler
                 yield return new WaitForEndOfFrame();
             }
 
+            yield return new WaitForSeconds(0.25f);
+
             CheckIfWon();
             running = null;
             yield return null;

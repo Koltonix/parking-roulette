@@ -695,7 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSelect: 1
   placement: 2
-  roads: {fileID: 0}
+  roads: {fileID: 591904727}
   path: {fileID: 0}
   OnSelectTile:
     m_PersistentCalls:
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   onReset:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 591904727}
         m_MethodName: DestroyAllRoads
         m_Mode: 1
         m_Arguments:
