@@ -65,7 +65,7 @@ namespace ParkingRoulette.Placement
                 currentPlacement = newPlacement;
                 currentPlacement.OnEnter();
 
-                placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.NULL;
+                placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.UNSELECTED;
 
                 onPlacementChange?.Invoke(placement.ToString());
                 return;
@@ -103,7 +103,7 @@ namespace ParkingRoulette.Placement
             currentPlacement?.OnExit();
 
             currentPlacement = null;
-            placement = PlacementType.NULL;
+            placement = PlacementType.UNSELECTED;
 
             onPlacementDeselect?.Invoke();
             onPlacementChange?.Invoke(placement.ToString());
