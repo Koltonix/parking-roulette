@@ -13,25 +13,49 @@ namespace ParkingRoulette.Utilities
         [SerializeField]
         private float speed = 1.25f;
         [SerializeField]
+        private Transform objectToRotate;
+        [SerializeField]
         private Vector3[] directions;
-        private int index = 0;
+
+        private float timeLeft = 5.0f;
+
+        [SerializeField]
+        private float maxTime = 15.0f;
+        [SerializeField]
+        private float minTime = 3.0f;
 
         private Coroutine aiming;
 
-        public void RotateObject(int direction)
+        private void Start()
         {
-            if (aiming != null)
-                return;
+            if (!objectToRotate)
+                objectToRotate = this.transform;
+        }
 
-            //Sanity check ensuring it is either 1, 0, or -1
-            direction = (direction > 0) ? 1 : direction;
-            direction = (direction < 0) ? -1 : direction;
+        private void Update()
+        {
+            if (CanRotate())
+                RotateObject();
+        }
 
-            index += direction;
-            index = (index > directions.Length - 1) ? 0 : index;
-            index = (index < 0) ? directions.Length - 1 : index;
+        private bool CanRotate()
+        {
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                timeLeft = Random.Range(minTime, maxTime);
+                return true;
+            }
 
-            aiming = StartCoroutine(AimObject(directions[index], speed));
+            return false;
+        }
+
+        public void RotateObject()
+        {
+            Vector3 randomDirection = directions[Random.Range(0, directions.Length)];
+
+            if (aiming == null)
+                aiming = StartCoroutine(AimObject(randomDirection, speed));
         }
 
         private IEnumerator AimObject(Vector3 direction, float speed)
@@ -42,7 +66,7 @@ namespace ParkingRoulette.Utilities
             while (t <= 1.0f)
             {
                 t += Time.deltaTime * speed;
-                this.transform.forward = Vector3.Lerp(originalDirection, direction, t);
+                this.transform.forward = Vector3.Slerp(originalDirection, direction, t);
 
                 yield return new WaitForEndOfFrame();
             }
