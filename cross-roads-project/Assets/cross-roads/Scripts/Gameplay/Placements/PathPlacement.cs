@@ -33,16 +33,25 @@ namespace ParkingRoulette.Placement
             base.PlaceItem(position);
 
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            Debug.Log(tile == selectedVehicle.previousTile);
+            Debug.Log(!selectedVehicle.previousTile.parkingSlot && !tile.parkingSlot);
+
+            //Trying to leave a parking spot that isn't the original
+            if (selectedVehicle.previousTile.parkingSlot && !tile.parkingSlot && selectedVehicle.previousTile != selectedVehicle.originalTile)
+                return;
 
             if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile))
             {
-                //You can only go into a parking slot once and cannot leave once you have...
-                if (!tile.parkingSlot || tile == selectedVehicle.originalTile)
+                //Started in parking -> Can Place
+                //Last Tile was a parking space -> Can't Place
+
+                //If the tile is not a parking slot or it is the original tile
+                if (!tile.parkingSlot || tile.parkingSlot && !selectedVehicle.previousTile.parkingSlot)
                     selectedVehicle.AddPathPoint(tile);
+
+                
             }
 
-            else if (selectedVehicle.previousTile == tile)
+            else if (tile == selectedVehicle.originalTile || tile == selectedVehicle.previousTile && !tile.parkingSlot)
                 selectedVehicle.AddPathPoint(tile);
         }
 

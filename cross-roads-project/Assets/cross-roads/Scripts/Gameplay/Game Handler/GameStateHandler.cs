@@ -66,12 +66,26 @@ namespace ParkingRoulette.GameHandler
 
         private IEnumerator MoveVehicles()
         {
-            int checkAmount = GetLongestPath(vehicles);
+            Vehicle lastVehicle = GetLongestPath(vehicles);
+            int checkAmount = lastVehicle.path.Count;
+
+            //I want the lastVehicle to actually be last in the array...
+            List<Vehicle> orderedVehicles = new List<Vehicle>(vehicles);
+            orderedVehicles.Remove(lastVehicle);
+            orderedVehicles.Add(lastVehicle);
 
             for (int i = 0; i < checkAmount; i++)
             {
-                for (int j = 0; j < vehicles.Length; j++)
-                    yield return vehicles[j].movement.MoveToPoint(i);
+                for (int j = 0; j < orderedVehicles.Count; j++)
+               {
+                    if (lastVehicle != orderedVehicles[j])
+                        StartCoroutine(orderedVehicles[j].movement.MoveToPoint(i));
+
+                    else if (lastVehicle == orderedVehicles[j])
+                        yield return StartCoroutine(orderedVehicles[j].movement.MoveToPoint(i));
+                    
+                }
+                    
 
                 yield return new WaitForEndOfFrame();
             }
@@ -128,17 +142,23 @@ namespace ParkingRoulette.GameHandler
             SpawnCars(amountToSpawn);
         }
 
-        private int GetLongestPath(Vehicle[] vehicles)
+        private Vehicle GetLongestPath(Vehicle[] vehicles)
         {
+            Vehicle longestVehicle = null;
             int longest = 0;
+
             foreach (Vehicle vehicle in vehicles)
             {
                 int pathLength = vehicle.path.Count;
                 if (pathLength > longest)
+                {
                     longest = pathLength;
+                    longestVehicle = vehicle;
+                }
+                    
             }
 
-            return longest;
+            return longestVehicle;
         }
 
         #region Spawning Cars
