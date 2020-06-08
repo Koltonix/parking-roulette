@@ -201,7 +201,7 @@ Transform:
   m_LocalScale: {x: 40, y: 1, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &31817772
 GameObject:
@@ -1143,8 +1143,9 @@ MonoBehaviour:
   carPrefabs:
   - {fileID: 7550723767431916187, guid: 1ee6c204af0af094ba4e89bac2ff826d, type: 3}
   - {fileID: 7668153287361177274, guid: 8ef9066e5ea5c9441ba4ca35b2418480, type: 3}
+  - {fileID: 8441148209454031319, guid: d97d14a818b000c49bfca5c37f3093d6, type: 3}
   vehicles: []
-  spawnOffset: {x: 0, y: 1.5, z: 0}
+  spawnOffset: {x: 0, y: 1.25, z: 0}
   onRun:
     m_PersistentCalls:
       m_Calls:
@@ -2266,7 +2267,7 @@ Transform:
   - {fileID: 1465853705}
   - {fileID: 263781761}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646438091
 GameObject:
@@ -2353,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 7629807990290943870, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7629807990290943870, guid: fc9838d9b99ab1a4296bb9f0f20e9c3b,
         type: 3}
@@ -5426,7 +5427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1824575272
 PrefabInstance:
@@ -5549,7 +5550,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 1eaab7effe033fc47b13ba56ce47f37b, type: 3}
       propertyPath: m_Name
-      value: WindTurbineBase_MESH
+      value: Wind Turbine
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1eaab7effe033fc47b13ba56ce47f37b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5581,7 +5582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1eaab7effe033fc47b13ba56ce47f37b, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1eaab7effe033fc47b13ba56ce47f37b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
