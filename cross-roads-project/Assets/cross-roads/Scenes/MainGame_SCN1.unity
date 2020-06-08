@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cd21a3e91d04042a54152744d229ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountToSpawn: 2
+  amountToSpawn: 1
   spawnIncrease: 0.5
   carPrefabs:
   - {fileID: 7550723767431916187, guid: 1ee6c204af0af094ba4e89bac2ff826d, type: 3}
