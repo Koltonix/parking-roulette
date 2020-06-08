@@ -33,10 +33,9 @@ namespace ParkingRoulette.Placement
             base.PlaceItem(position);
 
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            Debug.Log(!selectedVehicle.previousTile.parkingSlot && !tile.parkingSlot);
 
             //Trying to leave a parking spot that isn't the original
-            if (selectedVehicle.previousTile.parkingSlot && !tile.parkingSlot && selectedVehicle.previousTile != selectedVehicle.originalTile)
+            if (tile != null && selectedVehicle.previousTile.parkingSlot && !tile.parkingSlot && selectedVehicle.previousTile != selectedVehicle.originalTile)
                 return;
 
             if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile))
