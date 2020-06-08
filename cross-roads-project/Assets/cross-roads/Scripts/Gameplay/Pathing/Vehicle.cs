@@ -21,6 +21,8 @@ namespace ParkingRoulette.Pathing
         public List<PathPoint> path = new List<PathPoint>();
         [HideInInspector]
         public Tile previousTile = null;
+        [HideInInspector]
+        public Tile originalTile;
         [Space]
 
         [Header("Points")]
@@ -54,6 +56,7 @@ namespace ParkingRoulette.Pathing
             UpdateLine();
             EnablePath(false);
 
+            originalTile = BoardManager.Instance.WorldToTile(this.transform.position);
             AddPathPoint(BoardManager.Instance.WorldToTile(this.transform.position));
         }
 
@@ -169,9 +172,6 @@ namespace ParkingRoulette.Pathing
             if (BoardManager.Instance)
             {
                 BoardManager.Instance.WorldToTile(transform.position).currentVehicle = null;
-
-                if (endPoint) 
-                    BoardManager.Instance.WorldToTile(endPoint.transform.position).expectedVehicle = null;
             }
             
             if (endPoint)

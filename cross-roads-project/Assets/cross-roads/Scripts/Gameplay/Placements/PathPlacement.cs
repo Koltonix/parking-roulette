@@ -33,12 +33,17 @@ namespace ParkingRoulette.Placement
             base.PlaceItem(position);
 
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile) && tile.currentVehicle == null)
+            Debug.Log(tile == selectedVehicle.previousTile);
+
+            if (tile != null && tile.hasRoad && TileIsAdjacent(selectedVehicle.previousTile, tile))
             {
                 //You can only go into a parking slot once and cannot leave once you have...
-                if (!selectedVehicle.previousTile.parkingSlot || (selectedVehicle.path.Count == 1 && !tile.parkingSlot))
+                if (!tile.parkingSlot || tile == selectedVehicle.originalTile)
                     selectedVehicle.AddPathPoint(tile);
             }
+
+            else if (selectedVehicle.previousTile == tile)
+                selectedVehicle.AddPathPoint(tile);
         }
 
         public override void RemoveItem(Vector3 position)

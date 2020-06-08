@@ -60,7 +60,7 @@ namespace ParkingRoulette.Placement
 
         public override void OnExit()
         {
-            BoardManager.Instance.ResetTiles();
+            BoardManager.Instance.ResetTileColour();
         }
 
         private void UpdateAllPathing(Tile tile)

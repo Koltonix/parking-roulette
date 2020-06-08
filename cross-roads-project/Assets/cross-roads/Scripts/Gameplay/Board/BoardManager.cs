@@ -191,7 +191,7 @@ namespace ParkingRoulette.Boards
         {
             if (!hit.collider) return;
 
-            ResetTiles();
+            ResetTileColour();
 
             Tile hitTile = WorldToTile(hit.point);
             if (hitTile)
@@ -207,7 +207,7 @@ namespace ParkingRoulette.Boards
             }
         }
 
-        public void ResetTiles()
+        public void ResetTileColour()
         {
             foreach (Tile tile in boardInstance)
             {

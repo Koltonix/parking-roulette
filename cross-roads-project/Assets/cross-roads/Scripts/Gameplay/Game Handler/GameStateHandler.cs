@@ -98,9 +98,11 @@ namespace ParkingRoulette.GameHandler
         }
 
         public void WinGame()
-        {
+        { 
             onWin?.Invoke();
             Debug.Log("WON");
+
+            ResetGame();
         }
 
         public void LoseGame()
