@@ -48,7 +48,7 @@ namespace ParkingRoulette.GameHandler
         private UnityEvent onLose;
         [SerializeField]
         private UnityEvent onReset;
-
+        
         private void Start()
         {
             SpawnCars(Mathf.FloorToInt(amountToSpawn));

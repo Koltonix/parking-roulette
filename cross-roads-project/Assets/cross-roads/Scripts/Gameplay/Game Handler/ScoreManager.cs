@@ -24,6 +24,8 @@ namespace ParkingRoulette.GameHandler
         {
             score += value;
             scoreUI.text = score.ToString();
+
+            SaveHighestScore(score);
         }
 
         public void ResetScore()
@@ -39,6 +41,7 @@ namespace ParkingRoulette.GameHandler
             int highscore = PlayerPrefs.GetInt("HIGHSCORE");
             if (score > highscore)
                 PlayerPrefs.SetInt("HIGHSCORE", score);
+
         }
     }
 }
