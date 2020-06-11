@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bbe6ece436eba47b3f43417c8ae9ef, type: 3}
+  m_Name: Board Tool Creator
+  m_EditorClassIdentifier: 
+  filePath: /parking-roulette/Scripts/Editor/Board Creation/Boards/
+  height: 8
+  width: 8
+  tileSize: 5
+  tilePrefab: {fileID: 8689345317666962828, guid: 3539576d872f1384a8f67dc01033b027,
+    type: 3}
+  parkingSpotPrefab: {fileID: 8689345317666962828, guid: 3539576d872f1384a8f67dc01033b027,
+    type: 3}
+  prefabReference: {fileID: 3528386826405805071, guid: f689d1b9ac11e6a4aa0feebe70fbdb8f,
+    type: 3}
