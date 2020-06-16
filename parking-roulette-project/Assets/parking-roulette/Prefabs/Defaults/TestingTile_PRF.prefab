@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8689345317666962826}
   - component: {fileID: 8689345317666962829}
   - component: {fileID: 4785742502764114374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestingTile_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
