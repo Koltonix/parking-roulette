@@ -66,14 +66,14 @@ namespace ParkingRoulette.Boards
             bool parkingSlot = (x == 0 || y == 0 || x == width - 1|| y == height - 1);
             GameObject prefab = parkingSlot ? parkingSpotPrefab : tilePrefab;
 
-            Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).AddComponent<Tile>();
+            Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).GetComponent<Tile>();
 
             tile.GO = tile.gameObject;
 
             tile.x = x;
             tile.y = y;
 
-            tile.parkingSlot = parkingSlot;
+            tile.parkingSpace = parkingSlot;
 
             return tile;
         }

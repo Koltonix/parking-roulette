@@ -11,7 +11,8 @@ namespace ParkingRoulette.Boards
     {
         [Header("World Details")]
         public GameObject GO;
-        public Color32 defaultColour;
+        public Material defaultMaterial;
+        public Material selectedMaterial;
         [Space]
 
         [Header("Board Details")]
@@ -20,11 +21,21 @@ namespace ParkingRoulette.Boards
         [Space]
 
         [Header("Attributes")]
-        public bool parkingSlot;
+        public bool parkingSpace;
 
         private void Start()
         {
-            defaultColour = this.GetComponent<Renderer>().material.color;
+            defaultMaterial = this.GetComponent<Renderer>().material;
+        }
+
+        public void ResetTileColour()
+        {
+            this.GetComponent<Renderer>().material = defaultMaterial;
+        }
+
+        public void SetTileMaterial(Material material)
+        {
+            this.GetComponent<Renderer>().material = selectedMaterial;
         }
     }
 }
