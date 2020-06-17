@@ -27,16 +27,12 @@ namespace ParkingRoulette.Placing
 
         [Header("Events")]
         [SerializeField]
-        private RaycastHitEvent OnSelectTile;
-        [SerializeField]
-        private StringEvent onPlacementNameChange;
-        [SerializeField]
-        private UnityEvent onPlacementDeselect;
+        private EventString onPlacementNameChange;
 
 
         private void Start()
         {
-            onPlacementNameChange?.Invoke(type.ToString());
+            onPlacementNameChange.Raise(type.ToString());
         }
 
         public void OnLeftClick()
@@ -57,7 +53,7 @@ namespace ParkingRoulette.Placing
 
                 type = (currentPlacement != null) ? currentPlacement.type : PlacementType.UNSELECTED;
 
-                onPlacementNameChange?.Invoke(type.ToString());
+                onPlacementNameChange.Raise(type.ToString());
                 return;
             }
 
@@ -83,14 +79,15 @@ namespace ParkingRoulette.Placing
             currentPlacement = null;
             type = PlacementType.UNSELECTED;
 
-            onPlacementDeselect?.Invoke();
-            onPlacementNameChange?.Invoke(type.ToString());
+            onPlacementNameChange.Raise(type.ToString());
         }
 
         public void SelectPlacement(Placement placement)
         {
             currentPlacement = placement;
             type = placement.type;
+
+            onPlacementNameChange.Raise(type.ToString());
         }
 
         public void ReceiveRaycastHit(RaycastHit hit) { this.hit = hit; }

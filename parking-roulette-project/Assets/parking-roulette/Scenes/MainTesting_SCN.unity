@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7277ddcefb4dc418a0358dda5420a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: 2
+  type: 2
 --- !u!1 &702384141
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,18 +1189,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c20e3624d264694cae295c2c87e00f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: 0
+  type: 2
   roads: {fileID: 0}
   path: {fileID: 0}
-  OnSelectTile:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlacementNameChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlacementDeselect:
-    m_PersistentCalls:
-      m_Calls: []
+  onPlacementNameChange: {fileID: 11400000, guid: 68f8455afcd9de2419aff799f504044c,
+    type: 2}
 --- !u!114 &702384144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,7 +2601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc82b9ec1c9a724494ef0148e5ab18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: 2
+  type: 2
 --- !u!1 &1643882944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,7 +2745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eae2da7f72757a47bb5833e3c5668eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placement: 2
+  type: 2
 --- !u!1 &1816040966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,6 +3093,7 @@ GameObject:
   - component: {fileID: 1963690975}
   - component: {fileID: 1963690977}
   - component: {fileID: 1963690976}
+  - component: {fileID: 1963690978}
   m_Layer: 5
   m_Name: Placement Type
   m_TagString: Untagged
@@ -3145,10 +3139,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROADS
+  m_text: UNSELECTED
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c04a20ba28c5f84bb219cf9a1bea1e7, type: 2}
+  m_sharedMaterial: {fileID: 1230170027620988893, guid: 0c04a20ba28c5f84bb219cf9a1bea1e7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3173,10 +3168,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.75
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3214,7 +3209,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1963690976}
-    characterCount: 5
+    characterCount: 10
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -3245,6 +3240,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963690974}
   m_CullTransparentMesh: 0
+--- !u!114 &1963690978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963690974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8846a4f8e9a734eb13256cc3dc21ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 68f8455afcd9de2419aff799f504044c, type: 2}
+  Reponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1963690976}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2033205484
 PrefabInstance:
   m_ObjectHideFlags: 0
