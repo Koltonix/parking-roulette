@@ -919,6 +919,8 @@ GameObject:
   m_Component:
   - component: {fileID: 561667583}
   - component: {fileID: 561667584}
+  - component: {fileID: 561667585}
+  - component: {fileID: 561667586}
   m_Layer: 0
   m_Name: Board Manager
   m_TagString: Untagged
@@ -956,6 +958,60 @@ MonoBehaviour:
   width: 0
   height: 0
   parkingSpots: []
+--- !u!114 &561667585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561667582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9858e111fbe2684887519956434b4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 29883a5f21a777e4385ad6116687c21d, type: 2}
+  Reponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 561667582}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &561667586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561667582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9fdde896e854e748af3251c76a47221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 29e589f3bb16d55438ed9c335dda08f5, type: 2}
+  Reponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 561667584}
+        m_MethodName: SelectTile
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &777074200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1994,29 +2050,8 @@ MonoBehaviour:
   rayColour:
     serializedVersion: 2
     rgba: 4278190335
-  OnLeftClick:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRightClick:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPositiveRotate:
-    m_PersistentCalls:
-      m_Calls: []
-  OnNegativeRotate:
-    m_PersistentCalls:
-      m_Calls: []
-  OnMouseHover:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 561667584}
-        m_MethodName: SelectTile
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  OnLeftClick: {fileID: 11400000, guid: 29883a5f21a777e4385ad6116687c21d, type: 2}
+  OnRightClick: {fileID: 11400000, guid: fb70620d252b7ee4290b2c8f0d522c70, type: 2}
+  OnPositiveRotate: {fileID: 11400000, guid: 27290bf93ed92744cacf409d7c006c69, type: 2}
+  OnNegativeRotate: {fileID: 11400000, guid: 05f9fe5f98dcd6b41843a9bfce533bee, type: 2}
+  OnMouseHover: {fileID: 11400000, guid: 29e589f3bb16d55438ed9c335dda08f5, type: 2}

@@ -4,7 +4,6 @@
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
 using UnityEngine;
-using UnityEngine.Events;
 using ParkingRoulette.Events;
 
 namespace ParkingRoulette.Controls
@@ -32,14 +31,14 @@ namespace ParkingRoulette.Controls
         protected Color32 rayColour = Color.red;
 
         [Header("Events")]
-        public UnityEvent OnLeftClick;
-        public UnityEvent OnRightClick;
+        public GameEvent OnLeftClick;
+        public GameEvent OnRightClick;
         [Space]
-        public UnityEvent OnPositiveRotate;
-        public UnityEvent OnNegativeRotate;
+        public GameEvent OnPositiveRotate;
+        public GameEvent OnNegativeRotate;
         [Space]
 
-        public RaycastHitEvent OnMouseHover;
+        public EventRaycast OnMouseHover;
 
         protected virtual void Start()
         {

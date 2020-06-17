@@ -18,24 +18,24 @@ namespace ParkingRoulette.Controls
         protected override void LeftClick()
         {
             if (Input.GetKeyDown(keys.leftClick))
-                OnLeftClick?.Invoke();
+                OnLeftClick.Raise();
         }
         protected override void RightClick()
         {
             if (Input.GetKeyDown(keys.rightClick))
-                OnRightClick?.Invoke();
+                OnRightClick.Raise();
         }
 
         protected override void PositiveRotate()
         {
             if (Input.GetKeyDown(keys.positiveRotate))
-                OnPositiveRotate?.Invoke();
+                OnPositiveRotate.Raise();
         }
 
         protected override void NegativeRotate()
         {
             if (Input.GetKeyDown(keys.negativeRotate))
-                OnNegativeRotate?.Invoke();
+                OnNegativeRotate.Raise();
         }
 
         private void RaycastFromCamera()
@@ -43,7 +43,7 @@ namespace ParkingRoulette.Controls
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit, distance, mask);
 
-            OnMouseHover.Invoke(hit);
+            OnMouseHover.Raise(hit);
         }
     }
 }
