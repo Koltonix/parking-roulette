@@ -8,7 +8,7 @@ using ParkingRoulette.Enums;
 using ParkingRoulette.Events;
 using UnityEngine.Events;
 
-namespace ParkingRoulette.Placement
+namespace ParkingRoulette.Placing
 {
     public class PlacementHandler : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace ParkingRoulette.Placement
 
         [Header("Placement")]
         [SerializeField]
-        private PlacementType placement;
+        private PlacementType type;
         private Placement currentPlacement;
         [SerializeField]
         private Placement roads;
@@ -36,7 +36,7 @@ namespace ParkingRoulette.Placement
 
         private void Start()
         {
-            onPlacementNameChange?.Invoke(placement.ToString());
+            onPlacementNameChange?.Invoke(type.ToString());
         }
 
         public void OnLeftClick()
@@ -55,9 +55,9 @@ namespace ParkingRoulette.Placement
                 currentPlacement = newPlacement;
                 currentPlacement.OnEnter();
 
-                placement = (currentPlacement != null) ? currentPlacement.placement : PlacementType.UNSELECTED;
+                type = (currentPlacement != null) ? currentPlacement.type : PlacementType.UNSELECTED;
 
-                onPlacementNameChange?.Invoke(placement.ToString());
+                onPlacementNameChange?.Invoke(type.ToString());
                 return;
             }
 
@@ -76,22 +76,23 @@ namespace ParkingRoulette.Placement
                 currentPlacement.RemoveItem(hit);
         }
 
-        public void ReceiveRaycastHit(RaycastHit hit)
-        {
-            this.hit = hit;
-
-            if (currentPlacement == roads) OnSelectTile?.Invoke(hit);
-        }
-
         public void Deselect()
         {
             currentPlacement?.OnExit();
 
             currentPlacement = null;
-            placement = PlacementType.UNSELECTED;
+            type = PlacementType.UNSELECTED;
 
             onPlacementDeselect?.Invoke();
-            onPlacementNameChange?.Invoke(placement.ToString());
+            onPlacementNameChange?.Invoke(type.ToString());
         }
+
+        public void SelectPlacement(Placement placement)
+        {
+            currentPlacement = placement;
+            type = placement.type;
+        }
+
+        public void ReceiveRaycastHit(RaycastHit hit) { this.hit = hit; }
     }
 }

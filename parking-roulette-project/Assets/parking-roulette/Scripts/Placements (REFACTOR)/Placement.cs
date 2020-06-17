@@ -6,12 +6,12 @@
 using ParkingRoulette.Enums;
 using UnityEngine;
 
-namespace ParkingRoulette.Placement
+namespace ParkingRoulette.Placing
 {
     public abstract class Placement : MonoBehaviour
     {
         [HideInInspector]
-        public PlacementType placement = PlacementType.UNSELECTED;
+        public PlacementType type = PlacementType.UNSELECTED;
 
         public virtual void PlaceItem(RaycastHit hit){ }
         public virtual void RemoveItem(RaycastHit hit) { }

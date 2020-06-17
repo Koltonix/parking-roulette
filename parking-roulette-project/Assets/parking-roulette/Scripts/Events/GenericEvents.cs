@@ -6,6 +6,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using ParkingRoulette.Placing;
 
 namespace ParkingRoulette.Events
 {
@@ -17,4 +18,7 @@ namespace ParkingRoulette.Events
 
     [Serializable]
     public class IntEvent : UnityEvent<int> { };
+
+    [Serializable]
+    public class PlacementEvent : UnityEvent<Placement> { };
 }
