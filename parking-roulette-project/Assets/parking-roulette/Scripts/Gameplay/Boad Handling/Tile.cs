@@ -23,6 +23,10 @@ namespace ParkingRoulette.Boards
         [Header("Attributes")]
         public bool parkingSpace;
 
+        [Header("Road Attributes")]
+        public bool hasRoad = false;
+        public bool canPlaceRoad = true;
+
         private void Start()
         {
             defaultMaterial = this.GetComponent<Renderer>().material;
@@ -36,6 +40,12 @@ namespace ParkingRoulette.Boards
         public void SetTileMaterial(Material material)
         {
             this.GetComponent<Renderer>().material = selectedMaterial;
+        }
+
+        //TODO
+        public void CheckForRoad()
+        {
+
         }
     }
 }

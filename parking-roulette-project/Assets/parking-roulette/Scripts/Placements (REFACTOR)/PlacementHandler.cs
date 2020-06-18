@@ -6,24 +6,19 @@
 using UnityEngine;
 using ParkingRoulette.Enums;
 using ParkingRoulette.Events;
-using UnityEngine.Events;
 
 namespace ParkingRoulette.Placing
 {
     public class PlacementHandler : MonoBehaviour
     {
         [Header("Input")]
-        public RaycastHit hit;
+        private RaycastHit hit;
         [Space]
 
         [Header("Placement")]
         [SerializeField]
         private PlacementType type;
         private Placement currentPlacement;
-        [SerializeField]
-        private Placement roads;
-        [SerializeField]
-        private Placement path;
 
         [Header("Events")]
         [SerializeField]
@@ -35,35 +30,31 @@ namespace ParkingRoulette.Placing
             onPlacementNameChange.Raise(type.ToString());
         }
 
-        public void OnLeftClick()
-        {
-            if (!hit.collider)
-            {
-                Deselect();
-                return;
-            }
-
-            Placement newPlacement = hit.collider.GetComponent<Placement>();
-
-            if (newPlacement)
-            {
-                currentPlacement?.OnExit();
-                currentPlacement = newPlacement;
-                currentPlacement.OnEnter();
-
-                type = (currentPlacement != null) ? currentPlacement.type : PlacementType.UNSELECTED;
-
-                onPlacementNameChange.Raise(type.ToString());
-                return;
-            }
-
-            PlaceItem();
-        }
-
         public void PlaceItem()
         {
-            if (currentPlacement)
-                currentPlacement.PlaceItem(hit);
+            if (hit.collider)
+            {
+                Placement placementHit = hit.collider.GetComponent<Placement>();
+
+                //Typically used when a vehicle has been selected...
+                if (placementHit)
+                {
+                    currentPlacement?.OnExit();
+                    currentPlacement = placementHit;
+                    currentPlacement.OnEnter();
+
+                    type = (currentPlacement != null) ? currentPlacement.type : PlacementType.UNSELECTED;
+                    onPlacementNameChange.Raise(type.ToString());
+
+                    return;
+                }
+
+                else if (currentPlacement)
+                    currentPlacement.PlaceItem(hit);
+            }
+
+            else
+                Deselect();
         }
 
         public void DestroyItem()
