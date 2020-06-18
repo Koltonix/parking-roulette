@@ -9,7 +9,7 @@ namespace ParkingRoulette.Placing
     public class RoadPlacement : Placement
     {
         [SerializeField]
-        private GameObject roadPrefab;
+        private AllRoads roadPrefabs;
         [SerializeField]
         private Vector3 spawnOffset = Vector3.zero;
         private Dictionary<Tile, Road> instancedRoads = new Dictionary<Tile, Road>();
@@ -30,24 +30,39 @@ namespace ParkingRoulette.Placing
             //Tile exists, does not have a road, and a road can be placed
             if (tile != null && !tile.hasRoad && tile.canPlaceRoad)
             {
-                SpawnRoad(tile.GO.transform.position);
                 tile.hasRoad = true;
+                SpawnRoad(tile.GO.transform.position);
             }
                 
         }
 
         private void SpawnRoad(Vector3 position)
         {
-            Road road = Instantiate(roadPrefab, position + spawnOffset, Quaternion.identity).GetComponent<Road>();
-            instancedRoads.Add(BoardManager.Instance.WorldToTile(position), road);
+            Tile tile = BoardManager.Instance.WorldToTile(position);
+            Road road = Instantiate(roadPrefabs.roads[0].prefab, position + spawnOffset, Quaternion.identity).GetComponent<Road>();
+            instancedRoads.Add(tile, road);
 
+            road.tile = tile;
             road.UpdateRoad();
+
             UpdateAdjacentRoads(position);
         }
 
         public override void RemoveItem(RaycastHit hit)
         {
-            
+            Tile tile = BoardManager.Instance.WorldToTile(hit.point);
+
+            //Tile exists, does have a road, and a road can be placed
+            if (tile != null && tile.hasRoad && tile.canPlaceRoad)
+            {
+                Destroy(instancedRoads[tile].gameObject);
+                tile.hasRoad = false;
+
+                instancedRoads.Remove(tile);
+
+                UpdateAdjacentRoads(tile.GO.transform.position);
+                //Update all of the pathing here with an event
+            }
         }
 
         private void DestroyRoad()
@@ -61,7 +76,7 @@ namespace ParkingRoulette.Placing
             Tile[] adjacentTiles = BoardManager.Instance.GetAdjacentTiles(centreTile);
             foreach (Tile tile in adjacentTiles)
             {
-                if (tile.hasRoad && tile.canPlaceRoad)
+                if (tile != null && tile.hasRoad && tile.canPlaceRoad)
                     instancedRoads[tile].UpdateRoad();
             }
         }

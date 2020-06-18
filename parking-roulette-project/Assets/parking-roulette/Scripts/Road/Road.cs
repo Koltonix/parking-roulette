@@ -26,6 +26,8 @@ namespace ParkingRoulette.Roads
         {
             if (!childRoad)
                 childRoad = this.transform.GetChild(0).gameObject;
+
+            tile = BoardManager.Instance.WorldToTile(this.transform.position);
         }
 
         public void UpdateRoad()
@@ -38,8 +40,8 @@ namespace ParkingRoulette.Roads
         {
             Destroy(childRoad);
 
-            Quaternion parentRotation = prefab.transform.rotation;
-            childRoad = Instantiate(prefab.transform.GetChild(0).gameObject, this.transform.position, parentRotation, this.transform);
+            Transform childMesh = prefab.transform.GetChild(0).transform;
+            childRoad = Instantiate(childMesh.gameObject, this.transform.position, childMesh.rotation, this.transform);
         }
 
         public string GetBinaryRoadAdjacency()
