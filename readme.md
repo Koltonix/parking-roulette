@@ -1,7 +1,10 @@
 # [Repository](https://github.com/Koltonix/parking-roulette) || [Itchio](https://koltonix.itch.io/parking-roulette)
 # Parking Roulette
 
-![gameplay-gif](screenshots/gameplay.gif)
+
+|                                                |                                                      |
+|------------------------------------------------|------------------------------------------------------|
+|![gameplay-gif](assets/screenshots/gameplay.gif)|![example-design](assets/screenshots/new-lighting.png)|
 
 ## Description
 A Turn-Based Puzzle Game were you control cars from their current spot to a parking bay.
