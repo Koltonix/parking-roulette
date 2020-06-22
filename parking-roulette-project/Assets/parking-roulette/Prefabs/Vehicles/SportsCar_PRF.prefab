@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 1384780790342897578}
   - component: {fileID: 2636964646671826959}
   - component: {fileID: 251240700731176133}
-  m_Layer: 0
+  - component: {fileID: 330991723}
+  - component: {fileID: 3358711889870745352}
+  m_Layer: 10
   m_Name: SportsCar_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +85,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &330991723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764402140989363472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2242837, y: 1.3494503, z: 4.2109447}
+  m_Center: {x: 0.0003130436, y: 0.0019777715, z: -0.03154707}
+--- !u!114 &3358711889870745352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764402140989363472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7277ddcefb4dc418a0358dda5420a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1001 &1494354738634842179
 PrefabInstance:
   m_ObjectHideFlags: 0

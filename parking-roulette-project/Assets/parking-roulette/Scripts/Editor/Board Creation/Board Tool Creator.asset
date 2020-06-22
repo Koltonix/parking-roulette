@@ -13,12 +13,17 @@ MonoBehaviour:
   m_Name: Board Tool Creator
   m_EditorClassIdentifier: 
   filePath: /parking-roulette/Scripts/Editor/Board Creation/Boards/
-  height: 8
-  width: 8
+  height: 4
+  width: 4
   tileSize: 5
+  spawnParkingSpots: 0
+  spawnCorners: 0
+  parkingSpots:
+  - {fileID: 3958435207765623720, guid: 96d54f2ac9a30424b8b78b11811775bf, type: 3}
+  roadOffset: {x: 0, y: 0.75, z: 0}
   tilePrefab: {fileID: 8689345317666962828, guid: 3539576d872f1384a8f67dc01033b027,
     type: 3}
-  parkingSpotPrefab: {fileID: 8689345317666962828, guid: 3539576d872f1384a8f67dc01033b027,
+  parkingTilePrefab: {fileID: 8689345317666962828, guid: 3539576d872f1384a8f67dc01033b027,
     type: 3}
-  prefabReference: {fileID: 3528386826405805071, guid: f689d1b9ac11e6a4aa0feebe70fbdb8f,
+  prefabReference: {fileID: 9115487102991094258, guid: ccb8047aeafcdce488a5ecf9d02b2b76,
     type: 3}

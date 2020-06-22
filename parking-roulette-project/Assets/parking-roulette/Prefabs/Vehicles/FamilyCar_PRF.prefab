@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3400456484479990439}
   - component: {fileID: 1774139744848278786}
   - component: {fileID: 4574520306311725512}
-  m_Layer: 0
+  - component: {fileID: 1671554278}
+  - component: {fileID: 6270341496780501104}
+  m_Layer: 10
   m_Name: FamilyCar_PRF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2628705301803180061}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.023236437, y: 1.01, z: -0.0019045984}
-  m_LocalScale: {x: 0.8950772, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3400456484061614481}
   - {fileID: 3400456484176414102}
@@ -83,6 +85,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1671554278
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628705301803180061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2705364, y: 1.1853293, z: 4.4188843}
+  m_Center: {x: -0.00045883656, y: 0, z: -0.00035572052}
+--- !u!114 &6270341496780501104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628705301803180061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7277ddcefb4dc418a0358dda5420a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1001 &2934764049319010941
 PrefabInstance:
   m_ObjectHideFlags: 0

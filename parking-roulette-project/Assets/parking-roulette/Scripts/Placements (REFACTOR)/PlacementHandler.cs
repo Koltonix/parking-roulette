@@ -35,7 +35,6 @@ namespace ParkingRoulette.Placing
             if (hit.collider)
             {
                 Placement placementHit = hit.collider.GetComponent<Placement>();
-
                 //Typically used when a vehicle has been selected...
                 if (placementHit)
                 {

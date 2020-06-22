@@ -3,6 +3,7 @@
 // https://github.com/Koltonix
 // Copyright (c) 2020. All rights reserved.
 //////////////////////////////////////////////////
+using ParkingRoulette.Roads;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,8 +19,13 @@ namespace ParkingRoulette.Boards
         public int width;
         public int tileSize;
 
+        public bool spawnParkingSpots = true;
+        public bool spawnCorners = false;
+        public GameObject[] parkingSpots;
+        public Vector3 roadOffset = new Vector3(0.0f, 0.75f, 0.0f);
+
         public GameObject tilePrefab;
-        public GameObject parkingSpotPrefab;
+        public GameObject parkingTilePrefab;
 
         [HideInInspector]
         public GameObject prefabReference;
@@ -64,7 +70,12 @@ namespace ParkingRoulette.Boards
         private Tile SpawnTile(Vector3 worldPosition, int x, int y)
         {
             bool parkingSlot = (x == 0 || y == 0 || x == width - 1|| y == height - 1);
-            GameObject prefab = parkingSlot ? parkingSpotPrefab : tilePrefab;
+            bool cornerPiece = ((x == 0 && y == 0) || (x == 0 && y == height - 1) || (x == width - 1 && y == height - 1) || (x == width - 1 && y == 0));
+
+            //If you can spawn corners then ensure all corners are not considered a corner
+            cornerPiece = spawnCorners ? false : cornerPiece;
+
+            GameObject prefab = parkingSlot ? parkingTilePrefab : tilePrefab;
 
             Tile tile = Instantiate(prefab, worldPosition, Quaternion.identity).GetComponent<Tile>();
 
@@ -75,7 +86,41 @@ namespace ParkingRoulette.Boards
 
             tile.parkingSpace = parkingSlot;
 
+            tile.canPlaceRoad = !cornerPiece;
+            tile.GO.SetActive(!cornerPiece);
+
+            if (tile != null && tile.parkingSpace && spawnParkingSpots && !cornerPiece)
+                SpawnRoad(tile);
+
+                
+
             return tile;
+        }
+
+        private void SpawnRoad(Tile tile)
+        {
+            GameObject roadPrefab = parkingSpots[Random.Range(0, parkingSpots.Length)];
+
+            GameObject roadGO = Instantiate(roadPrefab, tile.GO.transform.position + roadOffset, Quaternion.identity, tile.GO.transform);
+            Road road = roadGO.GetComponent<Road>();
+
+            tile.hasRoad = true;
+            tile.canPlaceRoad = false;
+
+            roadGO.transform.forward = GetDirectionToCentre(tile.x, tile.y);
+            roadGO.transform.localScale = new Vector3(1.0f, roadGO.transform.localScale.y, 1.0f);
+
+            DestroyImmediate(road);
+        }
+
+        private Vector3 GetDirectionToCentre(int x, int y)
+        {
+            if (x == 0) return Vector3.right;
+            if (y == 0) return Vector3.forward;
+            if (x == width - 1) return -Vector3.right;
+            if (y == height - 1) return -Vector3.forward;
+
+            return Vector3.zero;
         }
     }
 }
