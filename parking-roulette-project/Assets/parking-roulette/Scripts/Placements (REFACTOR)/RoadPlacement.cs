@@ -13,10 +13,12 @@ namespace ParkingRoulette.Placing
         [SerializeField]
         private Vector3 spawnOffset = Vector3.zero;
         private Dictionary<Tile, Road> instancedRoads = new Dictionary<Tile, Road>();
+        private GameObject roadParent = null;
 
         private void Start()
         {
             type = PlacementType.ROAD;
+            roadParent = new GameObject("Roads");
         }
 
         public override void PlaceItem(RaycastHit hit)
@@ -39,7 +41,7 @@ namespace ParkingRoulette.Placing
         private void SpawnRoad(Vector3 position)
         {
             Tile tile = BoardManager.Instance.WorldToTile(position);
-            Road road = Instantiate(roadPrefabs.roads[0].prefab, position + spawnOffset, Quaternion.identity).GetComponent<Road>();
+            Road road = Instantiate(roadPrefabs.roads[0].prefab, position + spawnOffset, Quaternion.identity, roadParent.transform).GetComponent<Road>();
             instancedRoads.Add(tile, road);
 
             road.tile = tile;
@@ -54,6 +56,13 @@ namespace ParkingRoulette.Placing
 
             //Tile exists, does have a road, and a road can be placed
             if (tile != null && tile.hasRoad && tile.canPlaceRoad)
+                DestroyRoad(tile.GO.transform.position);
+        }
+
+        private void DestroyRoad(Vector3 position)
+        {
+            Tile tile = BoardManager.Instance.WorldToTile(position);
+            if (tile != null)
             {
                 Destroy(instancedRoads[tile].gameObject);
                 tile.hasRoad = false;
@@ -61,13 +70,7 @@ namespace ParkingRoulette.Placing
                 instancedRoads.Remove(tile);
 
                 UpdateAdjacentRoads(tile.GO.transform.position);
-                //Update all of the pathing here with an event
             }
-        }
-
-        private void DestroyRoad()
-        {
-
         }
 
         private void UpdateAdjacentRoads(Vector3 centrePosition)
